@@ -62,6 +62,12 @@
   align-items: center;
   position: relative;
 }
+.search-btn{
+  outline: none;
+  background-color: transparent;
+  border: none;
+  color: var(--secondary-color);
+}
 .search-whole::after {
   content: "";
   position: absolute;

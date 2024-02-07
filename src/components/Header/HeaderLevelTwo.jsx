@@ -6,8 +6,38 @@ import { faBell } from "@fortawesome/free-solid-svg-icons";
 import { faMicrophone } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import Styles from "./HeaderLvlTwo.module.css";
+import { useState } from "react";
 
 const HeaderLevelTwo = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [loading, setLoading] = useState(false);
+  const handleSearch = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `https://kreditaid.com/dev_2/search_home?searchtype=Company_name&country=india&name=${searchTerm}`
+      );
+      const data = await response.json();
+      if (data.length > 0) {
+        setCompanyName(data[0].company_name);
+      } else {
+        setCompanyName("Company not found");
+      }
+    } catch (error) {
+      console.error("Error fetching company data:", error);
+      setCompanyName("Company not found");
+    }
+    setLoading(false);
+  };
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
+  };
+  const handleInputChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
   return (
     <div>
       <div className={Styles["header-level-2"]}>
@@ -28,9 +58,17 @@ const HeaderLevelTwo = () => {
                   type="text"
                   className={Styles["comp-search-input"]}
                   placeholder="Search for the company"
+                  value={searchTerm}
+                  onChange={handleInputChange}
+                  onKeyPress={handleKeyPress}
                 ></input>
                 <div className={Styles["search-whole"]}>
-                  <FontAwesomeIcon icon={faMagnifyingGlass} />
+                  <button
+                    className={Styles["search-btn"]}
+                    onClick={handleSearch}
+                  >
+                    <FontAwesomeIcon icon={faMagnifyingGlass} />
+                  </button>
                 </div>
                 <div className={Styles["mic-whole"]}>
                   <FontAwesomeIcon icon={faMicrophone} />
@@ -46,6 +84,10 @@ const HeaderLevelTwo = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className={Styles["company-info"]}>
+        {loading && <div>Loading...</div>}
+        {!loading && companyName && <div>Company Name: {companyName}</div>}
       </div>
     </div>
   );
