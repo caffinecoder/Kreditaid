@@ -1,0 +1,129 @@
+.header-level-1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.top-menu-item {
+  display: flex;
+  width: max-content;
+}
+.menu-item-nav {
+  margin-right: 18px;
+  line-height: 1;
+}
+.menu-nav-tab {
+  padding: 8px 0;
+}
+.menu-text {
+  font-size: var(--fs5);
+  font-weight: 500;
+  color: var(--primary-color);
+}
+.right-side-menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 8px;
+}
+.flag-left-container {
+  margin-right: 12px;
+}
+.flag-container {
+  /* max-width: 250px;
+    width: 100%; */
+  width: 180px;
+  margin-right: 10px;
+  position: relative;
+}
+.menuFlags button {
+  padding: 4px 15px;
+  border-radius: 20px;
+}
+.menuFlags ul {
+  scrollbar-width: thin;
+  position: absolute;
+  right: -17px;
+  top: auto;
+  z-index: 99;
+  border: 1px solid #f37e20;
+  border-radius: 12px;
+  max-width: 200px;
+  background-color: #fff;
+  width: max-content;
+}
+.menuFlags span {
+  overflow: hidden;
+}
+.menuFlags ul input {
+  border-radius: 6px;
+  padding: 5px 8px;
+}
+.call-us-wrapper {
+  display: flex;
+  align-items: center;
+  height: 26px;
+  padding: 4px 16px 4px 2px;
+  align-items: center;
+  gap: 6px;
+  border-radius: 100px;
+  background: #fff0e5;
+}
+.call-us {
+  width: 26px;
+  height: 26px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  color: #fff;
+  background-color: #b02a30;
+  font-size: 11px;
+  margin-right: 8px;
+}
+/* top-left-menu-items */
+.left-menu-items {
+  display: flex;
+  background: rgba(241, 129, 33, 0.2);
+  width: fit-content;
+  height: 36px;
+  border-radius: 0 0 8px 8px;
+  padding: 0;
+}
+.left-top-tab-wrap {
+  padding: 10px 0;
+}
+.left-menu-tab {
+  color: #333;
+  display: flex;
+  padding: 0 6px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.26px;
+  line-height: 1;
+  position: relative;
+}
+.left-top-item:not(:last-child) .left-menu-tab {
+  border-right: 1.5px solid #ccc;
+}
+.left-top-item.isActive .left-menu-tab {
+  font-weight: 600;
+  color: #fff;
+  font-size: 1.1rem;
+}
+.left-top-item.isActive {
+  background: #f18121;
+  box-shadow: 0 1px 8px 0 rgba(211, 146, 90, 0.6);
+  border-radius: 0 0 8px 8px;
+}
+@media screen and (min-width: 1200px) {
+  .left-menu-tab {
+    padding: 0 11px;
+    font-size: 1rem;
+    letter-spacing: 0.75px;
+  }
+}
