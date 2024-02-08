@@ -47,14 +47,14 @@ const HeaderLevelOne = () => {
               <li className={Styles["menu-item-nav"]}>
                 <a href="#" className={Styles["menu-nav-tab"]}>
                   <label className={Styles["menu-text"]}>
-                    <input type="radio" value="director"></input>&nbsp;Company
+                    <input type="radio" value="director" name="filterBy"></input>&nbsp;Company
                   </label>
                 </a>
               </li>
               <li className={Styles["menu-item-nav"]}>
                 <a href="#" className={Styles["menu-nav-tab"]}>
                   <label className={Styles["menu-text"]}>
-                    <input type="radio" value="director"></input>
+                    <input type="radio" value="director" name="filterBy"></input>
                     &nbsp;Director
                   </label>
                 </a>
@@ -62,7 +62,7 @@ const HeaderLevelOne = () => {
               <li className={Styles["menu-item-nav"]}>
                 <a href="#" className={Styles["menu-nav-tab"]}>
                   <label className={Styles["menu-text"]}>
-                    <input type="radio" value="director"></input>&nbsp;CIN
+                    <input type="radio" value="director" name="filterBy"></input>&nbsp;CIN
                   </label>
                 </a>
               </li>
