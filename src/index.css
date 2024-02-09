@@ -9,10 +9,12 @@
   --fs3: 1.4rem;
   --fs4: 1.2rem;
   --fs5: 1rem;
+  --fs6: 0.8rem;
   --primary-color: #333;
   --secondary-color: #fff;
-  --arrow-icon: #e71d2a;;
+  --arrow-icon: #e71d2a;
   --hover-color: #e71d2a;
+  --primary-bg-color: #fff;
 }
 body {
   font-family: "Poppins", sans-serif;
@@ -44,4 +46,25 @@ ul {
 img {
   display: block;
   max-width: 100%;
+}
+/* Scollbar-Custom-Css */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #43c431 #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 18px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #43c431;
+  border-radius: 18px;
+  border: 5px solid #ffffff;
 }
