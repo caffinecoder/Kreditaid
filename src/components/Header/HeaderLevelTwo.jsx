@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import Styles from "./HeaderLvlTwo.module.css";
 import CompanySearch from "../SearchBox/CompanySearch";
+import HeaderLevelOne from "./HeaderLevelOne";
 
-const HeaderLevelTwo = () => {
+const HeaderLevelTwo = ({ handleRadioChange, placeholderText }) => {
   return (
     <div>
       <div className={Styles["header-level-2"]}>
@@ -20,7 +21,10 @@ const HeaderLevelTwo = () => {
           </div>
           <div className={Styles["level-2-right"]}>
             <div className={Styles["comp-search"]}>
-              <CompanySearch />
+              <CompanySearch
+                placeholderText={placeholderText}
+                handleRadioChange={handleRadioChange}
+              />
               <div className={Styles["login-dropdown"]}>
                 <button className={Styles["loginBtn"]}>Login</button>
               </div>

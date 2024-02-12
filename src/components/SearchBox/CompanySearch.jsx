@@ -10,7 +10,7 @@ import Styles from "./CompanySearch.module.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const CompanySearch = () => {
+const CompanySearch = ({ placeholderText, handleRadioChange }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [companyName, setCompanyName] = useState([]);
   const [showResults, setShowResults] = useState(false);
@@ -52,7 +52,7 @@ const CompanySearch = () => {
       <input
         type="text"
         className={Styles["comp-search-input"]}
-        placeholder="Search for the company"
+        placeholder={placeholderText}
         value={searchTerm}
         onChange={handleInputChange}
         onKeyDown={handleKeyPress}

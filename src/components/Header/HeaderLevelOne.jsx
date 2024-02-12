@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhoneVolume, fas } from "@fortawesome/free-solid-svg-icons";
 import Styles from "./HeaderLvlOne.module.css";
 
-const HeaderLevelOne = () => {
+const HeaderLevelOne = ({ handleRadioChange }) => {
   const [selected, setSelected] = useState("IN");
   const [isHovered, setIsHovered] = useState(1);
   const handleMouseEnter = (index) => {
@@ -47,14 +47,26 @@ const HeaderLevelOne = () => {
               <li className={Styles["menu-item-nav"]}>
                 <a href="#" className={Styles["menu-nav-tab"]}>
                   <label className={Styles["menu-text"]}>
-                    <input type="radio" value="director" name="filterBy"></input>&nbsp;Company
+                    <input
+                      type="radio"
+                      value="Company"
+                      name="filterBy"
+                      onClick={handleRadioChange}
+                    />
+                    &nbsp;Company
                   </label>
                 </a>
               </li>
               <li className={Styles["menu-item-nav"]}>
                 <a href="#" className={Styles["menu-nav-tab"]}>
-                  <label className={Styles["menu-text"]}>
-                    <input type="radio" value="director" name="filterBy"></input>
+                  <label className={Styles["menu-text"]} htmlFor="director">
+                    <input
+                      id="director"
+                      type="radio"
+                      value="Director"
+                      name="filterBy"
+                      onClick={handleRadioChange}
+                    />
                     &nbsp;Director
                   </label>
                 </a>
@@ -62,7 +74,13 @@ const HeaderLevelOne = () => {
               <li className={Styles["menu-item-nav"]}>
                 <a href="#" className={Styles["menu-nav-tab"]}>
                   <label className={Styles["menu-text"]}>
-                    <input type="radio" value="director" name="filterBy"></input>&nbsp;CIN
+                    <input
+                      type="radio"
+                      value="CIN"
+                      name="filterBy"
+                      onClick={handleRadioChange}
+                    />
+                    &nbsp;CIN
                   </label>
                 </a>
               </li>
