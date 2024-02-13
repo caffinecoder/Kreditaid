@@ -49,36 +49,40 @@ const CompanySearch = ({ placeholderText, handleRadioChange }) => {
   }, [searchTerm]);
   return (
     <div className={Styles["search-wrap"]}>
-      <input
-        type="text"
-        className={Styles["comp-search-input"]}
-        placeholder={placeholderText}
-        value={searchTerm}
-        onChange={handleInputChange}
-        onKeyDown={handleKeyPress}
-      />
-      <div className={Styles["search-whole"]}>
-        <button className={Styles["search-btn"]} onClick={handleSearch}>
-          <FontAwesomeIcon icon={faMagnifyingGlass} />
-        </button>
-      </div>
-      <div className={Styles["mic-whole"]}>
-        <FontAwesomeIcon icon={faMicrophone} />
+      <div className={Styles["input-wrap"]}>
+        <input
+          type="text"
+          className={Styles["comp-search-input"]}
+          placeholder={placeholderText}
+          value={searchTerm}
+          onChange={handleInputChange}
+          onKeyDown={handleKeyPress}
+        />
+        <div className={Styles["search-whole"]}>
+          <button className={Styles["search-btn"]} onClick={handleSearch}>
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+          </button>
+        </div>
+        <div className={Styles["mic-whole"]}>
+          <FontAwesomeIcon icon={faMicrophone} />
+        </div>
       </div>
       <div
         className={Styles["comp-info-wrap"]}
         style={{ display: showResults ? "block" : "none" }}
       >
-        <ul className={Styles["comp-details-listing"]}>
-          {companyName.map((item, index) => {
-            const { companyName, companyID } = item;
-            return (
-              <li key={index} className={Styles["comp-details-list"]}>
-                <Link to={`/company/${companyID}`}>{companyName}</Link>
-              </li>
-            );
-          })}
-        </ul>
+        <div className={Styles['comp-info-inner']}>
+          <ul className={Styles["comp-details-listing"]}>
+            {companyName.map((item, index) => {
+              const { companyName, companyID } = item;
+              return (
+                <li key={index} className={Styles["comp-details-list"]}>
+                  <Link to={`/company/${companyID}`}>{companyName}</Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
       <div>
         {companyName.success === false && (

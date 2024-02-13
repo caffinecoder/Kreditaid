@@ -1,0 +1,38 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 50vw;
+  height: max-content;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  background-color: var(--primary-bg-color);
+  transition: opacity 0.3s ease-in-out;
+}
+.modal-img {
+  display: block;
+  max-width: 300px;
+  width: 100%;
+  margin: 0 auto;
+}
+.content-header {
+  font-size: 1.6rem;
+  text-align: center;
+}
+.content-sub-heading {
+  font-size: 1rem;
+  text-align: center;
+  color: var(--primary-color);
+}
+.empty-cart-btn-wrap {
+  text-align: center;
+}
+.empty-cart-btn {
+  margin: 0 6px;
+  padding: 5px 22px;
+  border-radius: 4px;
+  background-color: #2871de;
+}

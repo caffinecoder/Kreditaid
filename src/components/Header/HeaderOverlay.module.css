@@ -1,0 +1,10 @@
+.header-overlay {
+  background: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: calc(100vh + 80px);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  backdrop-filter: blur(10px);
+}

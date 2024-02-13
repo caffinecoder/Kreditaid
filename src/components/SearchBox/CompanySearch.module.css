@@ -1,9 +1,5 @@
 .search-wrap {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 440px;
+  width: 450px;
   border-radius: 20px;
   border: solid 1.5px #f37e20;
   background-color: #fff;
@@ -16,27 +12,41 @@
   padding-left: 14px;
   position: relative;
 }
+.input-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .comp-info-wrap {
   position: absolute;
   top: calc(100% + 10px);
   left: 50%;
   width: 100%;
   transform: translateX(-50%);
-  padding: 12px;
-  max-height: 265px;
-  min-height: 100%;
   z-index: 999;
+}
+.comp-info-inner {
+  max-height: 348px;
+  min-height: 100%;
+  padding: 12px;
   border-radius: 12px;
-  overflow: hidden;
   border: solid 1.5px #f37e20;
+  overflow: hidden;
   background-color: var(--primary-bg-color);
 }
-.comp-info-wrap::after {
-  background: #fff;
-  width: 19px;
-  top: 1px;
-  height: 2px;
-  right: 23px;
+.comp-info-wrap::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 10px;
+  right: 75px;
+  top: -4px;
+  background-image: url("https://www.icicibank.com/etc.clientlibs/icicibank/clientlibs/clientlib-base-v2/resources/images/dropdown-level1-arrow.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+.comp-details-list:not(:last-child) {
+  border-bottom: 1px solid #dedede;
 }
 .comp-details-list:hover {
   background-color: #e9e9e9;
@@ -52,7 +62,7 @@
 .comp-search-input {
   border: none;
   outline: none;
-  width: 75%;
+  width: 77%;
   height: 36px;
   font-size: 1rem;
   font-family: "Poppins", sans-serif;
@@ -70,7 +80,7 @@
   align-items: center;
   cursor: pointer;
   font-size: 1.1rem;
-  padding-right: 15px;
+  padding-right: 22px;
 }
 .search-whole {
   width: 30px;
@@ -82,4 +92,12 @@
   justify-content: center;
   align-items: center;
   position: relative;
+}
+.search-whole::after {
+  content: "";
+  width: 1px;
+  height: 68%;
+  right: -9px;
+  position: absolute;
+  border-right: 1px solid #f38227;
 }

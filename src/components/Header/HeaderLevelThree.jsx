@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Styles from "./HeaderLvlThree.module.css";
-import { IoMdArrowDropdown } from "react-icons/io";
+import { IoIosArrowDown } from "react-icons/io";
 import SubMenu from "./SubMenu";
 
 const HeaderLevelThree = () => {
@@ -50,7 +50,7 @@ const HeaderLevelThree = () => {
                 >
                   <a to="/" className={Styles["menu-nav-tab"]}>
                     Data Services
-                    <IoMdArrowDropdown className={Styles["arrow-down"]} />
+                    <IoIosArrowDown className={Styles["arrow-down"]} />
                   </a>
                   {hovered && <SubMenu subData={subMenuData[0].subData} />}
                 </li>

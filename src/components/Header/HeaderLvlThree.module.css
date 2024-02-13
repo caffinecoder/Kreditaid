@@ -32,7 +32,8 @@
   padding-right: 35px;
 }
 .arrow-down{
-  font-size: 1.5rem;
+  margin-left: 3px;
+  font-size: 1.2rem;
 }
 .menu-item-nav:hover .arrow-down{
   transform: rotate(180deg);
