@@ -12,6 +12,9 @@
   background-color: var(--primary-bg-color);
   transition: opacity 0.3s ease-in-out;
 }
+.close-btn {
+  text-align: right;
+}
 .modal-img {
   display: block;
   max-width: 300px;

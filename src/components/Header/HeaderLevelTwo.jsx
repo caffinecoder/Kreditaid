@@ -10,10 +10,19 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { PiPackageFill } from "react-icons/pi";
 import { CiHeart } from "react-icons/ci";
 
-const HeaderLevelTwo = ({ handleRadioChange, placeholderText }) => {
+const HeaderLevelTwo = ({
+  handleRadioChange,
+  placeholderText,
+  setOverlayVisible,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleCart = () => {
     setIsOpen(!isOpen);
+    setOverlayVisible(true);
+  };
+  const handleModalCoseBtn = () => {
+    setIsOpen(false);
+    setOverlayVisible(false);
   };
   const items = [
     { id: 1, label: "My Profile" },
@@ -78,8 +87,9 @@ const HeaderLevelTwo = ({ handleRadioChange, placeholderText }) => {
                 </button>
               </div>
               <div className={Styles["mycart"]} onClick={toggleCart}>
-                <HeaderOverlay isOpen={isOpen} />
-                {isOpen && <CartModal />}
+                {isOpen && (
+                  <CartModal handleModalCoseBtn={handleModalCoseBtn} />
+                )}
                 <FontAwesomeIcon icon={faCartShopping} />
                 <span className={Styles["mycart-count"]}>20</span>
               </div>

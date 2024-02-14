@@ -10,7 +10,11 @@
   --fs4: 1.2rem;
   --fs5: 1rem;
   --fs6: 0.8rem;
-  --link : #1a3d73;
+  --fw300: 300;
+  --fw400: 400;
+  --fw500: 500;
+  --fw600: 600;
+  --link: #1a3d73;
   --primary-color: #333;
   --secondary-color: #fff;
   --arrow-icon: #e71d2a;
@@ -22,6 +26,7 @@ body {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   color: var(--primary-color);
+  overflow: hidden;
 }
 .container {
   max-width: 1260px;
@@ -70,7 +75,7 @@ img {
   border-radius: 18px;
   border: 5px solid #ffffff;
 }
-button{
+button {
   outline: none;
   font-size: 1rem;
   font-weight: 400;

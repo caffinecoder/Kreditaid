@@ -4,7 +4,6 @@ import Header from "./components/Header/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import HeaderOverlay from "./components/Header/HeaderOverlay";
 
 function App() {
   return (

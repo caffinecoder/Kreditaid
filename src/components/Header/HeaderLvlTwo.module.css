@@ -93,7 +93,7 @@
   border-bottom: 1px solid #dedede;
 }
 .login-title {
-  font-weight: 400;
+  font-weight: var(--fw400);
   color: var(--primary-color);
 }
 .login-sign-up {
@@ -115,7 +115,7 @@
   align-items: center;
   color: var(--primary-color);
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: var(--fw400);
   padding: 10px 10px;
 }
 .loginBtn:hover .login-inner {

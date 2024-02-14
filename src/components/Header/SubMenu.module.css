@@ -1,29 +1,20 @@
 .submenu-wrap{
   position: absolute;
-  left:31%;
+  left: 85%;
   top: calc(100% + 0px);
   width: 170%;
   transform: translateX(-50%);
   background-color: #f9f9f9;
-  z-index: 9;
+  z-index: 99;
+  border-radius: 12px;
 }
 .submenu {
   padding: 20px;
   box-shadow: 0 9px 16px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 12px;
+  border-radius: 0 0  12px 12px;
   border: solid 1px #f37e20;
+  border-top: none;
   background-color: var(--primary-bg-color);
-}
-.submenu-wrap::before{
-  content: "";
-  position: absolute;
-  width: 30px;
-  height: 10px;
-  right: 55px;
-  top: -4px;
-  background-image: url("https://www.icicibank.com/etc.clientlibs/icicibank/clientlibs/clientlib-base-v2/resources/images/dropdown-level1-arrow.svg");
-  background-repeat: no-repeat;
-  background-position: 0 0;
 }
 .submenu-item-link{
     font-size: 1rem;

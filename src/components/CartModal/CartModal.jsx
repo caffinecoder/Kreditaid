@@ -1,13 +1,17 @@
 import React from "react";
 import Styles from "./CartModal.module.css";
+import { RiCloseCircleFill } from "react-icons/ri";
 
-const CartModal = () => {
+const CartModal = ({ handleModalCoseBtn }) => {
   const handleModalClick = (e) => {
     e.stopPropagation();
   };
   return (
     <div className={Styles.modal} onClick={handleModalClick}>
       <div className={Styles["modal-container"]}>
+        <div className={Styles["close-btn"]} onClick={handleModalCoseBtn}>
+          <RiCloseCircleFill />
+        </div>
         <div className={Styles["modal-header"]}>
           <img
             src="https://img.freepik.com/premium-vector/shopping-cart-with-cross-mark-wireless-paymant-icon-shopping-bag-failure-paymant-sign-online-shopping-vector_662353-912.jpg"

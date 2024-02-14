@@ -3,7 +3,7 @@ import Styles from "./HeaderLvlThree.module.css";
 import { IoIosArrowDown } from "react-icons/io";
 import SubMenu from "./SubMenu";
 
-const HeaderLevelThree = () => {
+const HeaderLevelThree = ({setOverlayVisible}) => {
   const [hovered, setHovered] = useState(false);
   const subMenuData = [
     {
@@ -52,7 +52,7 @@ const HeaderLevelThree = () => {
                     Data Services
                     <IoIosArrowDown className={Styles["arrow-down"]} />
                   </a>
-                  {hovered && <SubMenu subData={subMenuData[0].subData} />}
+                  {hovered && <SubMenu subData={subMenuData[0].subData} setOverlayVisible={setOverlayVisible}/>}
                 </li>
                 <li className={Styles["menu-item-nav"]}>
                   <a to="/" className={Styles["menu-nav-tab"]}>
