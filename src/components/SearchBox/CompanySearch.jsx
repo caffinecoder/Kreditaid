@@ -55,7 +55,7 @@ const CompanySearch = ({ placeholderText }) => {
       }
     };
     document.addEventListener("mousedown", handleOutsideClick);
-    return () => {
+    return () => { 
       document.removeEventListener("mousedown", handleOutsideClick);
     };
   }, [searchBoxRef]);
