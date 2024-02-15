@@ -55,7 +55,7 @@ const CompanySearch = ({ placeholderText }) => {
       }
     };
     document.addEventListener("mousedown", handleOutsideClick);
-    return () => { 
+    return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
   }, [searchBoxRef]);
@@ -63,7 +63,9 @@ const CompanySearch = ({ placeholderText }) => {
     <div className={Styles["search-wrap"]}>
       <div className={Styles["input-wrap"]}>
         <input
-          onFocus={() => setShowResults((prev) => !prev)}
+          onFocus={(e) => {
+            if (e.target.value !== "") setShowResults((prev) => !prev);
+          }}
           type="text"
           className={Styles["comp-search-input"]}
           placeholder={placeholderText}
