@@ -9,6 +9,7 @@ import HeaderOverlay from "./HeaderOverlay";
 import { FaRegUserCircle } from "react-icons/fa";
 import { PiPackageFill } from "react-icons/pi";
 import { CiHeart } from "react-icons/ci";
+import { Link } from "react-router-dom";
 
 const HeaderLevelTwo = ({
   handleRadioChange,
@@ -36,10 +37,12 @@ const HeaderLevelTwo = ({
           <div className={Styles["level-2-left"]}>
             <div className={Styles["humburger"]}></div>
             <div className={Styles["logo"]}>
-              <img
-                src="https://kreditaid.com/assets/website/kreditaid.png"
-                className={Styles["logo-img"]}
-              ></img>
+              <Link to="/home">
+                <img
+                  src="https://kreditaid.com/assets/website/kreditaid.png"
+                  className={Styles["logo-img"]}
+                />
+              </Link>
             </div>
           </div>
           <div className={Styles["level-2-right"]}>

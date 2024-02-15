@@ -9,7 +9,7 @@ const Banner = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: false,
     autoplaySpeed: 2000,
@@ -17,17 +17,20 @@ const Banner = () => {
   return (
     <div>
       <section className={Styles["banner"]}>
-        <Slider {...settings}>
-          <div>
-            <img src="../src/assets/images/slider.png"></img>
-          </div>
-          <div>
-          <img src="../src/assets/images/slider.png"></img>
-          </div>
-          <div>
-          <img src="../src/assets/images/slider.png"></img>
-          </div>
-        </Slider>
+        <div className={Styles["banner-slider"]}>
+          <Slider {...settings}>
+            <div>
+              <img src="../src/assets/images/slider.png"></img>
+            </div>
+            <div>
+              <img src="../src/assets/images/slider.png"></img>
+            </div>
+            <div>
+              <img src="../src/assets/images/slider.png"></img>
+            </div>
+          </Slider>
+        </div>
+        <div className={Styles["banner-card-wrap"]}></div>
       </section>
     </div>
   );

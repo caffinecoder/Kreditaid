@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import Styles from "./HeaderLvlThree.module.css";
 import { IoIosArrowDown } from "react-icons/io";
 import SubMenu from "./SubMenu";
+import { Link } from "react-router-dom";
 
-const HeaderLevelThree = ({setOverlayVisible}) => {
+const HeaderLevelThree = ({ setOverlayVisible }) => {
   const [hovered, setHovered] = useState(false);
   const subMenuData = [
     {
@@ -34,40 +35,45 @@ const HeaderLevelThree = ({setOverlayVisible}) => {
             <nav className={Styles["mega-menu"]}>
               <ul className={Styles["mega-items"]}>
                 <li className={Styles["menu-item-nav"]}>
-                  <a to="/" className={Styles["menu-nav-tab"]}>
+                  <Link to="/home" className={Styles["menu-nav-tab"]}>
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li className={Styles["menu-item-nav"]}>
-                  <a to="/" className={Styles["menu-nav-tab"]}>
+                  <Link to="/pricing" className={Styles["menu-nav-tab"]}>
                     Pricing
-                  </a>
+                  </Link>
                 </li>
                 <li
                   className={Styles["menu-item-nav"]}
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <a to="/" className={Styles["menu-nav-tab"]}>
+                  <Link to="/dataServices" className={Styles["menu-nav-tab"]}>
                     Data Services
                     <IoIosArrowDown className={Styles["arrow-down"]} />
-                  </a>
-                  {hovered && <SubMenu subData={subMenuData[0].subData} setOverlayVisible={setOverlayVisible}/>}
+                  </Link>
+                  {hovered && (
+                    <SubMenu
+                      subData={subMenuData[0].subData}
+                      setOverlayVisible={setOverlayVisible}
+                    />
+                  )}
                 </li>
                 <li className={Styles["menu-item-nav"]}>
-                  <a to="/" className={Styles["menu-nav-tab"]}>
+                  <Link to="/blog" className={Styles["menu-nav-tab"]}>
                     Blog
-                  </a>
+                  </Link>
                 </li>
                 <li className={Styles["menu-item-nav"]}>
-                  <a to="/" className={Styles["menu-nav-tab"]}>
+                  <Link to="/contact" className={Styles["menu-nav-tab"]}>
                     Contact
-                  </a>
+                  </Link>
                 </li>
                 <li className={Styles["menu-item-nav"]}>
-                  <a to="/" className={Styles["menu-nav-tab"]}>
+                  <Link to="/about-us" className={Styles["menu-nav-tab"]}>
                     About Us
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhoneVolume, fas } from "@fortawesome/free-solid-svg-icons";
 import Styles from "./HeaderLvlOne.module.css";
 
-const HeaderLevelOne = ({ handleRadioChange }) => {
+const HeaderLevelOne = ({ handleRadioChange, disabled }) => {
   const [selected, setSelected] = useState("IN");
   const [isHovered, setIsHovered] = useState(1);
   const handleMouseEnter = (index) => {
@@ -92,6 +92,7 @@ const HeaderLevelOne = ({ handleRadioChange }) => {
               onSelect={(code) => setSelected(code)}
               className={Styles.menuFlags}
               searchable
+              disabled={disabled}
             />
           </div>
           <div className={Styles["flag-right-container"]}>

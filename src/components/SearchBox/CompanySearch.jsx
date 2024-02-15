@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import ReactFlagsSelect from "react-flags-select";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faL, faPhoneVolume, fas } from "@fortawesome/free-solid-svg-icons";
@@ -10,10 +10,11 @@ import Styles from "./CompanySearch.module.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const CompanySearch = ({ placeholderText, handleRadioChange }) => {
+const CompanySearch = ({ placeholderText }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [companyName, setCompanyName] = useState([]);
   const [showResults, setShowResults] = useState(false);
+  const searchBoxRef = useRef(null);
   const handleSearch = async () => {
     try {
       const response = await fetch(
@@ -47,10 +48,22 @@ const CompanySearch = ({ placeholderText, handleRadioChange }) => {
       setShowResults(false);
     }
   }, [searchTerm]);
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (searchBoxRef.current && !searchBoxRef.current.contains(e.target)) {
+        setShowResults(false);
+      }
+    };
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [searchBoxRef]);
   return (
     <div className={Styles["search-wrap"]}>
       <div className={Styles["input-wrap"]}>
         <input
+          onFocus={() => setShowResults((prev) => !prev)}
           type="text"
           className={Styles["comp-search-input"]}
           placeholder={placeholderText}
@@ -68,10 +81,11 @@ const CompanySearch = ({ placeholderText, handleRadioChange }) => {
         </div>
       </div>
       <div
+        ref={searchBoxRef}
         className={Styles["comp-info-wrap"]}
         style={{ display: showResults ? "block" : "none" }}
       >
-        <div className={Styles['comp-info-inner']}>
+        <div className={Styles["comp-info-inner"]}>
           <ul className={Styles["comp-details-listing"]}>
             {companyName.map((item, index) => {
               const { companyName, companyID } = item;
@@ -85,9 +99,10 @@ const CompanySearch = ({ placeholderText, handleRadioChange }) => {
         </div>
       </div>
       <div>
-        {companyName.success === false && (
-          <div>{companyName.Error.message}</div>
-        )}
+        {companyName.length === 1 &&
+          companyName[0].companyName === "Company not found" && (
+            <div>Company not found</div>
+          )}
       </div>
     </div>
   );
