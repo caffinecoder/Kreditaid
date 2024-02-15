@@ -39,7 +39,7 @@ const HeaderLevelTwo = ({
             <div className={Styles["logo"]}>
               <Link to="/home">
                 <img
-                  src="https://kreditaid.com/assets/website/kreditaid.png"
+                  src={"https://kreditaid.com/assets/website/kreditaid.png"}
                   className={Styles["logo-img"]}
                 />
               </Link>

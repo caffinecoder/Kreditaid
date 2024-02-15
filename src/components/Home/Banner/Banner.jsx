@@ -20,13 +20,13 @@ const Banner = () => {
         <div className={Styles["banner-slider"]}>
           <Slider {...settings}>
             <div>
-              <img src="../src/assets/images/slider.png"></img>
+              <img src={"../src/assets/images/slider.png"}></img>
             </div>
             <div>
-              <img src="../src/assets/images/slider.png"></img>
+              <img src={"../src/assets/images/slider.png"}></img>
             </div>
             <div>
-              <img src="../src/assets/images/slider.png"></img>
+              <img src={"../src/assets/images/slider.png"}></img>
             </div>
           </Slider>
         </div>
