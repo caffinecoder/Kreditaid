@@ -3,6 +3,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 :root {
   --fs1: 2rem;
   --fs2: 1.6rem;

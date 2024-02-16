@@ -35,7 +35,7 @@ const HeaderLevelThree = ({ setOverlayVisible }) => {
             <nav className={Styles["mega-menu"]}>
               <ul className={Styles["mega-items"]}>
                 <li className={Styles["menu-item-nav"]}>
-                  <Link to="/home" className={Styles["menu-nav-tab"]}>
+                  <Link to="/" className={Styles["menu-nav-tab"]}>
                     Home
                   </Link>
                 </li>

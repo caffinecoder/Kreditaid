@@ -2,7 +2,7 @@ import React from "react";
 import Styles from "./CartModal.module.css";
 import { RiCloseCircleFill } from "react-icons/ri";
 
-const CartModal = ({ handleModalCoseBtn }) => {
+const CartModal = ({ handleModalCoseBtn, handleAddToCart }) => {
   const handleModalClick = (e) => {
     e.stopPropagation();
   };
@@ -26,6 +26,12 @@ const CartModal = ({ handleModalCoseBtn }) => {
           <div className={Styles["empty-cart-btn-wrap"]}>
             <button className={Styles["empty-cart-btn"]}>Sign In</button>
             <button className={Styles["empty-cart-btn"]}>Sign Up</button>
+            <button
+              className={Styles["empty-cart-btn"]}
+              onClick={() => handleAddToCart()}
+            >
+             Add to Cart+
+            </button>
           </div>
         </div>
       </div>

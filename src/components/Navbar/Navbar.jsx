@@ -11,16 +11,20 @@ const Navbar = () => {
   );
   const [disabled, setDisabled] = useState(false);
   const [overlayVisible, setOverlayVisible] = useState(false);
+  const [searchType, setSearchType] = useState("");
 
   const handleRadioChange = (e) => {
     const value = e.target.value;
     if (value === "Director") {
+      setSearchType("directorName");
       setPlaceholderText("Search for Director");
       setDisabled(true);
     } else if (value === "CIN") {
+      setSearchType("companyCin");
       setPlaceholderText("Search with CIN");
       setDisabled(true);
     } else {
+      setSearchType("companyName");
       setPlaceholderText("Search with Company Name");
       setDisabled(false);
     }
@@ -33,7 +37,7 @@ const Navbar = () => {
           disabled={disabled}
         />
         <HeaderLevelTwo
-          setOverlayVisible={setOverlayVisible}
+          setOverlayVisible={setOverlayVisible} setSearchType={setSearchType}
           placeholderText={placeholderText}
           handleRadioChange={handleRadioChange}
         />

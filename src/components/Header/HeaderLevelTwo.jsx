@@ -10,11 +10,13 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { PiPackageFill } from "react-icons/pi";
 import { CiHeart } from "react-icons/ci";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { increment } from '../../features/counter/counterSlice';
 
 const HeaderLevelTwo = ({
   handleRadioChange,
   placeholderText,
-  setOverlayVisible,
+  setOverlayVisible
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleCart = () => {
@@ -30,6 +32,11 @@ const HeaderLevelTwo = ({
     { id: 2, label: "Order" },
     { id: 3, label: "Wishlist" },
   ];
+  const dispatch = useDispatch();
+  const count = useSelector((state) => state.counter.value);
+  const handleAddToCart = () => {
+    dispatch(increment());
+  };
   return (
     <div>
       <div className={Styles["header-level-2"]}>
@@ -47,7 +54,7 @@ const HeaderLevelTwo = ({
           </div>
           <div className={Styles["level-2-right"]}>
             <div className={Styles["comp-search"]}>
-              <CompanySearch
+              <CompanySearch setSearchType={setSearchType}
                 placeholderText={placeholderText}
                 handleRadioChange={handleRadioChange}
               />
@@ -91,10 +98,13 @@ const HeaderLevelTwo = ({
               </div>
               <div className={Styles["mycart"]} onClick={toggleCart}>
                 {isOpen && (
-                  <CartModal handleModalCoseBtn={handleModalCoseBtn} />
+                  <CartModal
+                    handleModalCoseBtn={handleModalCoseBtn}
+                    handleAddToCart={handleAddToCart}
+                  />
                 )}
                 <FontAwesomeIcon icon={faCartShopping} />
-                <span className={Styles["mycart-count"]}>20</span>
+                <span className={Styles["mycart-count"]}>{count}</span>
               </div>
             </div>
           </div>

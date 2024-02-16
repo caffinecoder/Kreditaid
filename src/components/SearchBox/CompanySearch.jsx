@@ -10,7 +10,7 @@ import Styles from "./CompanySearch.module.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const CompanySearch = ({ placeholderText }) => {
+const CompanySearch = ({ placeholderText, searchType}) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [companyName, setCompanyName] = useState([]);
   const [showResults, setShowResults] = useState(false);
@@ -18,7 +18,7 @@ const CompanySearch = ({ placeholderText }) => {
   const handleSearch = async () => {
     try {
       const response = await fetch(
-        `http://206.189.135.190/api/get-company-list-by-name-or-other-keywords/${searchTerm}`
+        `http://206.189.135.190/api/commonSearch?source=kreditaid&searchKeyWord=${searchTerm}&searchType=${searchType}`
       );
       const data = await response.json();
       setCompanyName(data.companyList);
