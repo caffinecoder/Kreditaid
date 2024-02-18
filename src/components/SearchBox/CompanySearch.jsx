@@ -10,7 +10,7 @@ import Styles from "./CompanySearch.module.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const CompanySearch = ({ placeholderText, searchType}) => {
+const CompanySearch = ({ placeholderText, searchCategory }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [companyName, setCompanyName] = useState([]);
   const [showResults, setShowResults] = useState(false);
@@ -18,17 +18,20 @@ const CompanySearch = ({ placeholderText, searchType}) => {
   const handleSearch = async () => {
     try {
       const response = await fetch(
-        `http://206.189.135.190/api/commonSearch?source=kreditaid&searchKeyWord=${searchTerm}&searchType=${searchType}`
+        `http://206.189.135.190/api/commonSearch?source=kreditaid&searchKeyWord=${searchTerm}&searchType=${searchCategory}`
       );
       const data = await response.json();
-      setCompanyName(data.companyList);
+      setCompanyName(data.data);
       setShowResults(true);
       if (setShowResults(true)) {
         alert("error");
       }
     } catch (error) {
       console.error("Error fetching company data:", error);
-      setCompanyName("Company not found");
+      setCompanyName([
+        { companyName: "Error fetching company data", companyID: null },
+      ]);
+      setShowResults(true);
     }
   };
   const handleKeyPress = (event) => {
@@ -89,11 +92,11 @@ const CompanySearch = ({ placeholderText, searchType}) => {
       >
         <div className={Styles["comp-info-inner"]}>
           <ul className={Styles["comp-details-listing"]}>
-            {companyName.map((item, index) => {
-              const { companyName, companyID } = item;
+            {companyName?.map((item, index) => {
+              const { name } = item;
               return (
                 <li key={index} className={Styles["comp-details-list"]}>
-                  <Link to={`/company/${companyID}`}>{companyName}</Link>
+                  <Link to={`/company/${name}`}>{name}</Link>
                 </li>
               );
             })}
@@ -101,7 +104,7 @@ const CompanySearch = ({ placeholderText, searchType}) => {
         </div>
       </div>
       <div>
-        {companyName.length === 1 &&
+        {companyName?.length === 1 &&
           companyName[0].companyName === "Company not found" && (
             <div>Company not found</div>
           )}

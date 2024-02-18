@@ -4,28 +4,32 @@ import HeaderLevelOne from "../Header/HeaderLevelOne";
 import HeaderLevelTwo from "../Header/HeaderLevelTwo";
 import HeaderLevelThree from "../Header/HeaderLevelThree";
 import HeaderOverlay from "../Header/HeaderOverlay";
+import { setPlaceholder } from "../../features/placeholder/placeholderSlice";
+import { setSearchCategory } from "../../features/radioBtn/radioBtnSlice";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
-  const [placeholderText, setPlaceholderText] = useState(
-    "Search with Company Name"
-  );
   const [disabled, setDisabled] = useState(false);
   const [overlayVisible, setOverlayVisible] = useState(false);
-  const [searchType, setSearchType] = useState("");
-
+  
+  const dispatch = useDispatch();
+  const placeholderText = useSelector((state) => state.placeholder.value);
+  const searchCategory = useSelector((state) => state.searchType.value);
   const handleRadioChange = (e) => {
     const value = e.target.value;
-    if (value === "Director") {
-      setSearchType("directorName");
-      setPlaceholderText("Search for Director");
+    if (value === "directorName") {
+      dispatch(setSearchCategory("directorName"));
+      dispatch(setPlaceholder("Search with Director Name"));
       setDisabled(true);
-    } else if (value === "CIN") {
-      setSearchType("companyCin");
-      setPlaceholderText("Search with CIN");
+    } else if (value === "companyCin") {
+      dispatch(setSearchCategory("companyCin"));
+      dispatch(setPlaceholder("Search with Company Cin"));
       setDisabled(true);
     } else {
-      setSearchType("companyName");
-      setPlaceholderText("Search with Company Name");
+      const company = dispatch(companyname());
+      dispatch(setSearchCategory("companyName"));
+      dispatch(setPlaceholder("Search with Company Name"));
       setDisabled(false);
     }
   };
@@ -37,9 +41,10 @@ const Navbar = () => {
           disabled={disabled}
         />
         <HeaderLevelTwo
-          setOverlayVisible={setOverlayVisible} setSearchType={setSearchType}
+          setOverlayVisible={setOverlayVisible}
           placeholderText={placeholderText}
           handleRadioChange={handleRadioChange}
+          searchCategory={searchCategory}
         />
       </div>
       <HeaderLevelThree setOverlayVisible={setOverlayVisible} />

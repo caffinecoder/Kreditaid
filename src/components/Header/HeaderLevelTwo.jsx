@@ -11,12 +11,13 @@ import { PiPackageFill } from "react-icons/pi";
 import { CiHeart } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { increment } from '../../features/counter/counterSlice';
+import { increment } from "../../features/counter/counterSlice";
 
 const HeaderLevelTwo = ({
   handleRadioChange,
   placeholderText,
-  setOverlayVisible
+  setOverlayVisible,
+  searchCategory,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleCart = () => {
@@ -54,7 +55,8 @@ const HeaderLevelTwo = ({
           </div>
           <div className={Styles["level-2-right"]}>
             <div className={Styles["comp-search"]}>
-              <CompanySearch setSearchType={setSearchType}
+              <CompanySearch
+                searchCategory={searchCategory}
                 placeholderText={placeholderText}
                 handleRadioChange={handleRadioChange}
               />

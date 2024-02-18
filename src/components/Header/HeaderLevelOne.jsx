@@ -3,7 +3,6 @@ import ReactFlagsSelect from "react-flags-select";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhoneVolume, fas } from "@fortawesome/free-solid-svg-icons";
 import Styles from "./HeaderLvlOne.module.css";
-
 const HeaderLevelOne = ({ handleRadioChange, disabled }) => {
   const [selected, setSelected] = useState("IN");
   const [isHovered, setIsHovered] = useState(1);
@@ -18,6 +17,7 @@ const HeaderLevelOne = ({ handleRadioChange, disabled }) => {
     { id: 2, label: "Personal " },
     { id: 3, label: "Data Services" },
   ];
+  console.log(typeof companyname);
   return (
     <div>
       <div className={Styles["header-level-1"]}>
@@ -49,9 +49,10 @@ const HeaderLevelOne = ({ handleRadioChange, disabled }) => {
                   <label className={Styles["menu-text"]}>
                     <input
                       type="radio"
-                      value="Company"
+                      value="companyName"
                       name="filterBy"
                       onClick={handleRadioChange}
+                      defaultChecked
                     />
                     &nbsp;Company
                   </label>
@@ -63,7 +64,7 @@ const HeaderLevelOne = ({ handleRadioChange, disabled }) => {
                     <input
                       id="director"
                       type="radio"
-                      value="Director"
+                      value="directorName"
                       name="filterBy"
                       onClick={handleRadioChange}
                     />
@@ -76,7 +77,7 @@ const HeaderLevelOne = ({ handleRadioChange, disabled }) => {
                   <label className={Styles["menu-text"]}>
                     <input
                       type="radio"
-                      value="CIN"
+                      value="companyCin"
                       name="filterBy"
                       onClick={handleRadioChange}
                     />
