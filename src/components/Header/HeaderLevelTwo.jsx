@@ -61,7 +61,7 @@ const HeaderLevelTwo = ({
                 handleRadioChange={handleRadioChange}
               />
               <div className={Styles["login-dropdown"]}>
-                <button className={Styles["loginBtn"]}>
+                <Link to="/login" className={Styles["loginBtn"]}>
                   Login
                   <IoIosArrowDown className={Styles["arrow-down"]} />
                   <div className={Styles["login-inner"]}>
@@ -70,9 +70,9 @@ const HeaderLevelTwo = ({
                         <a href="/" className={Styles["login-title"]}>
                           New Customer?
                         </a>
-                        <a href="/" className={Styles["login-sign-up"]}>
+                        <Link to="/signup" className={Styles["login-sign-up"]}>
                           Sign Up
-                        </a>
+                        </Link>
                       </div>
                       {items.map((item, idx) => (
                         <li key={idx} className={Styles["login-item"]}>
@@ -96,7 +96,7 @@ const HeaderLevelTwo = ({
                       ))}
                     </ul>
                   </div>
-                </button>
+                </Link>
               </div>
               <div className={Styles["mycart"]} onClick={toggleCart}>
                 {isOpen && (

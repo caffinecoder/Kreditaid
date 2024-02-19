@@ -1,0 +1,20 @@
+.login-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 800px;
+  margin: 50px auto;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+.login-right {
+  padding: 20px;
+}
+.email-wrap,
+.password-wrap {
+  display: flex;
+  margin: 15px 0;
+  flex-direction: column;
+}
+.login-btn{
+  background-color: blue;
+  padding: 5px 10px;
+}

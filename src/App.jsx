@@ -5,16 +5,22 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
+import Footer from "./components/Footer/Footer";
+import Login from "./components/Login/Login";
+import Signup from "./components/SignUp/Signup";
 
 function App() {
   return (
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </BrowserRouter>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
