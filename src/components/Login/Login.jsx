@@ -1,36 +1,136 @@
-import React from "react";
+import * as React from "react";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Styles from "./Login.module.css";
-import authSlice from "../../features/auth/authSlice";
-import { useDispatch, useSelector } from "react-redux";
 
-const Login = () => {
-  const dispatch = useDispatch();
+function Copyright(props) {
+  return (
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      {"Copyright © "}
+      <Link color="inherit" href="https://mui.com/">
+        Your Website
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
+}
+
+const defaultTheme = createTheme();
+
+export default function SignIn() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      email: data.get("email"),
+      password: data.get("password"),
+    });
+  };
+
   return (
     <div className={Styles["login-wrap"]}>
       <div className={Styles["login-container"]}>
         <div className={Styles["login-left"]}>
           <img
-            src="https://d3tl80hy6t5toy.cloudfront.net/wp-content/uploads/sites/3/2018/07/07134308/2018-07-09-WhatExpectEarnFinanceDegree-ThinkstockPhotos-494940062.jpg"
-            alt="login"
+            src="https://e0.pxfuel.com/wallpapers/476/914/desktop-wallpaper-light-abstract-light-blue-color-background-light-colour.jpg"
+            alt="login-banner-image"
           />
         </div>
         <div className={Styles["login-right"]}>
-          <h2>Login Form</h2>
-          <div className={Styles["login-details"]}>
-            <div className={Styles["email-wrap"]}>
-              <label htmlFor="email">Email</label>
-              <input type="email" placeholder="Entert Your Email" />
-            </div>
-            <div className={Styles["password-wrap"]}>
-              <label htmlFor="email">Password</label>
-              <input type="password" placeholder="Entert Your Password" />
-            </div>
-            <button className={Styles["login-btn"]}>Login</button>
-          </div>
+          <ThemeProvider theme={defaultTheme}>
+            <Container component="main" maxWidth="xs">
+              <CssBaseline />
+              <Box
+                sx={{
+                  marginTop: 1,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+                  <LockOutlinedIcon />
+                </Avatar>
+                <Typography component="h1" variant="h5">
+                  Sign in
+                </Typography>
+                <Box
+                  component="form"
+                  onSubmit={handleSubmit}
+                  noValidate
+                  sx={{ mt: 1 }}
+                >
+                  <TextField
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="email"
+                    label="Email Address"
+                    name="email"
+                    autoComplete="email"
+                    autoFocus
+                    sx={{
+                      width: 1
+                    }}
+                  />
+                  <TextField
+                    margin="normal"
+                    required
+                    fullWidth
+                    name="password"
+                    label="Password"
+                    type="password"
+                    id="password"
+                    autoComplete="current-password"
+                  />
+                  <FormControlLabel
+                    control={<Checkbox value="remember" color="primary" />}
+                    label="Remember me"
+                  />
+                  <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    sx={{ mt: 3, mb: 2 }}
+                  >
+                    Sign In
+                  </Button>
+                  <Grid container>
+                    <Grid item xs>
+                      <Link href="#" variant="body2">
+                        Forgot password?
+                      </Link>
+                    </Grid>
+                    <Grid item>
+                      <Link href="#" variant="body2">
+                        {"Don't have an account? Sign Up"}
+                      </Link>
+                    </Grid>
+                  </Grid>
+                </Box>
+              </Box>
+              <Copyright sx={{ mt: 8, mb: 4 }} />
+            </Container>
+          </ThemeProvider>
         </div>
       </div>
     </div>
   );
-};
-
-export default Login;
+}

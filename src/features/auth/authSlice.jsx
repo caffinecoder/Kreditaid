@@ -6,25 +6,26 @@ const initialState = {
   error: null,
 };
 const authSlice = createSlice({
-  name: auth,
+  name: "auth",
   initialState,
   reducers: {
-    loginSucess: (state, action) => {
-      state.isLoggedIn = true;
-      state.user = action.payload;
+    setLoginSuccess: (state, action) => {
+      state.isLoggedIn = action.payload;
+      state.user = null;
       state.error = null;
     },
-    loginFailure: (state, action) => {
+    setLoginFailure: (state, action) => {
       state.isLoggedIn = false;
       state.user = null;
       state.error = action.payload;
     },
-    logout: (state) => {
+    setLogout: (state) => {
       state.isLoggedIn = false;
       state.user = null;
       state.error = null;
     },
   },
 });
-export const { loginSucess, loginFailure, logout } = authSlice.actions;
+export const { setLoginSuccess, setLoginFailure, setLogout } =
+  authSlice.actions;
 export default authSlice.reducer;
