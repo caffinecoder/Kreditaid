@@ -56,9 +56,9 @@ const Login = () => {
                       onChange={(e) => setPassword(e.target.value)}
                     />
                     <div className={Styles.forgot}>
-                      <a rel="noopener noreferrer" href="#">
+                      <Link rel="noopener noreferrer" to="/forgot-password">
                         Forgot Password ?
-                      </a>
+                      </Link>
                     </div>
                   </div>
                   <button className={Styles["loginBtn"]} onClick={handleLogin}>

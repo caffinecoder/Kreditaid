@@ -35,7 +35,7 @@ const Navbar = () => {
   };
   return (
     <div className={Styles["navigation-wrap"]}>
-      <div className="container">
+      <div className={`${Styles['container']} container `}>
         <HeaderLevelOne
           handleRadioChange={handleRadioChange}
           disabled={disabled}

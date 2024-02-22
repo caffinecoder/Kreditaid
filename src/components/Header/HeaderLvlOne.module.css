@@ -15,7 +15,7 @@
   padding: 8px 0;
 }
 .menu-text {
-  font-size: var(--fs5);
+  font-size: 14px;
   font-weight: 500;
   color: var(--primary-color);
 }
@@ -36,7 +36,7 @@
   position: relative;
 }
 .menuFlags button {
-  padding: 4px 15px;
+  padding: 3px 15px;
   border-radius: 20px;
 }
 .menuFlags ul {
@@ -111,9 +111,9 @@
   border-right: 1.5px solid #ccc;
 }
 .left-top-item.isActive .left-menu-tab {
-  font-weight: 600;
+  font-weight: 500;
   color: #fff;
-  font-size: 1.1rem;
+  font-size: 15px;
 }
 .left-top-item.isActive {
   background: #f18121;
@@ -122,8 +122,8 @@
 }
 @media screen and (min-width: 1200px) {
   .left-menu-tab {
-    padding: 0 11px;
-    font-size: 1rem;
+    padding: 0 9px;
+    font-size: 15px;
     letter-spacing: 0.75px;
   }
 }
