@@ -19,15 +19,10 @@ const Banner = () => {
       <section className={Styles["banner"]}>
         <div className={Styles["banner-slider"]}>
           <Slider {...settings}>
-            <div>
-              <img src={"../src/assets/images/banner-img.jpg"} />
-            </div>
-            <div>
-              <img src={"../src/assets/images/banner-img.jpg"} />
-            </div>
-            <div>
-              <img src={"../src/assets/images/banner-img.jpg"} />
-            </div>
+            <div className={Styles["slide"]}></div>
+            <div className={Styles["slide"]}></div>
+            <div className={Styles["slide"]}></div>
+            <div className={Styles['slide-right-top']}></div>
           </Slider>
         </div>
         <div className={Styles["banner-card-wrap"]}></div>

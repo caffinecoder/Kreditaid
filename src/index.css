@@ -92,3 +92,16 @@ button {
   border: none;
   color: var(--secondary-color);
 }
+
+/* slick-slider */
+.slick-prev,
+.slick-next {
+  color: #000;
+  background-color: red;
+}
+.slick-next {
+  right: 50px;
+}
+.slick-prev {
+  left: 50px;
+}

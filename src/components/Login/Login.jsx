@@ -1,8 +1,27 @@
 import React from "react";
 import Styles from "./Login.module.css";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import authSlice, {
+  setLoginFailure,
+  setLoginSuccess,
+} from '../../features/loginAuth/authSlice';
+import { useState } from "react";
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const loginSuccess = useSelector((state) => state.auth.isLoggedIn);
+  const loginFailure = useSelector((state) => state.auth.error);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const handleLogin = (e) => {
+    e.preventDefault();
+    if (email && password) {
+      dispatch(setLoginSuccess("You Have Successfully Login"));
+    } else {
+      dispatch(setLoginFailure("Please Fill The Email & Password"));
+    }
+  };
   return (
     <div>
       <div className={Styles["login-form-wrap"]}>
@@ -21,7 +40,9 @@ const Login = () => {
                       type="text"
                       name="username"
                       id="username"
+                      value={email}
                       placeholder="Email"
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
                   <div className={Styles["input-group"]}>
@@ -30,7 +51,9 @@ const Login = () => {
                       type="password"
                       name="password"
                       id="password"
+                      value={password}
                       placeholder="Password"
+                      onChange={(e) => setPassword(e.target.value)}
                     />
                     <div className={Styles.forgot}>
                       <a rel="noopener noreferrer" href="#">
@@ -38,7 +61,11 @@ const Login = () => {
                       </a>
                     </div>
                   </div>
-                  <button className={Styles["loginBtn"]}>Login</button>
+                  <button className={Styles["loginBtn"]} onClick={handleLogin}>
+                    Login
+                  </button>
+                  {loginSuccess && <p>{loginSuccess}</p>}
+                  {loginFailure && <p>{loginFailure}</p>}
                 </form>
                 <div className={Styles["social-message"]}>
                   <div className={Styles.line}></div>
@@ -85,9 +112,9 @@ const Login = () => {
                 </div>
                 <p className={Styles.signup}>
                   Don't have an account?
-                  <Link
+                  <Link 
                     rel="noopener noreferrer"
-                    href="#"
+                    to="/signup"
                     className={Styles["signup-link"]}
                   >
                     Sign up

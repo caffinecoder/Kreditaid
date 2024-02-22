@@ -45,7 +45,7 @@ const HeaderLevelTwo = ({
           <div className={Styles["level-2-left"]}>
             <div className={Styles["humburger"]}></div>
             <div className={Styles["logo"]}>
-              <Link to="/home">
+              <Link to="/">
                 <img
                   src={"https://kreditaid.com/assets/website/kreditaid.png"}
                   className={Styles["logo-img"]}
@@ -67,9 +67,9 @@ const HeaderLevelTwo = ({
                   <div className={Styles["login-inner"]}>
                     <ul className={Styles["login-menu"]}>
                       <div className={Styles["login-title-wrap"]}>
-                        <a href="/" className={Styles["login-title"]}>
+                        <Link to="/signup" className={Styles["login-title"]}>
                           New Customer?
-                        </a>
+                        </Link>
                         <Link to="/signup" className={Styles["login-sign-up"]}>
                           Sign Up
                         </Link>

@@ -1,5 +1,6 @@
 footer {
-  background-color: #f1f3f7;
+  padding-top: 40px;
+  background-color: #f5f7fe;
 }
 .footer-logo {
   width: 180px;
@@ -7,10 +8,10 @@ footer {
 }
 .footer-wrap {
   display: grid;
-  grid-template-columns: 320px auto;
+  grid-template-columns: 350px auto;
 }
 .footer-caps {
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   line-height: 1.5;
 }
 .fb-link,
@@ -31,38 +32,40 @@ footer {
   grid-column: span 0;
 }
 .imp-links-wrap {
-  display: grid;
-  gap: 28px;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  justify-content: space-between;
   border: 1px solid #ccc;
   border-right: none;
   border-left: none;
   padding: 20px;
 }
 .imp-links h4 {
-  font-size: 1rem;
+  font-size: 1.1rem;
   position: relative;
   font-weight: 600;
 }
 .imp-links h4::after {
   content: "";
-  width: 12%;
-  height: 2px;
+  width: 26px;
+  height: 3px;
   bottom: -5px;
-  border-radius: 6px;
+  border-radius: 30px;
   left: 0;
   position: absolute;
-  background-color: var(--secondary-bg-color);
+  background-color: var(--arrow-icon);
 }
 .footer-nav {
   padding-left: 14px;
 }
 .footer-nav-tab {
-  margin: 2px 0;
+  margin: 4px 0;
+}
+.footer-content-right{
+  display: grid;
 }
 .footer-tab-link {
   position: relative;
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   color: var(--primary-color);
 }
 .footer-tab-link::before {
@@ -83,8 +86,8 @@ footer {
   grid-template-columns: repeat(2, 1fr);
 }
 .addr-title {
-  font-size: 1rem;
-  font-family: 600;
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 .address-wrap {
   padding: 20px;
@@ -102,4 +105,9 @@ footer {
 .rights,
 .privacy {
   font-size: 0.8rem;
+}
+.footer-image-wrap {
+  max-width: 150px;
+  width: 100%;
+  margin: 30px 0 20px;
 }
