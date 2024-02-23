@@ -1,7 +1,7 @@
 import React from "react";
 import Styles from "./SubMenu.module.css";
 
-const SubMenu = ({ subData, setOverlayVisible }) => {
+const SubMenu = ({ subData, setOverlayVisible, className }) => {
   const handleMouseEnter = () => {
     setOverlayVisible(true);
   };
@@ -10,7 +10,7 @@ const SubMenu = ({ subData, setOverlayVisible }) => {
   };
   return (
     <div
-      className={Styles["submenu-wrap"]}
+      className={`${Styles["submenu-wrap"]} ${className}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

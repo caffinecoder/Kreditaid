@@ -17,7 +17,7 @@
   max-width: 45%;
   width: 100%;
 }
-.form{
+.form {
   height: 100%;
 }
 .form-container {
@@ -61,6 +61,8 @@
 .signupBtn {
   width: 100%;
   margin: 30px 0 5px;
+  color: var(--secondary-color);
+  text-align: center;
   background-color: var(--primary-btn-bg-color);
   border-radius: 4px;
   font-size: 1.1rem;

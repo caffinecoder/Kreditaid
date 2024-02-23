@@ -1,11 +1,8 @@
 import React, { useRef } from "react";
 import ReactFlagsSelect from "react-flags-select";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faL, faPhoneVolume, fas } from "@fortawesome/free-solid-svg-icons";
-import { faBell } from "@fortawesome/free-solid-svg-icons";
 import { faMicrophone } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import Styles from "./CompanySearch.module.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";

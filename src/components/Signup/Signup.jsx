@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Styles from "./Signup.module.css";
 import { Link } from "react-router-dom";
+import Otp from "../Otp/Otp";
 
 const Signup = () => {
+  const [okToSigup, setOkToSignup] = useState(false);
   return (
     <div>
       <div className={Styles["signup-form-wrap"]}>
@@ -42,11 +44,13 @@ const Signup = () => {
                       placeholder="Password"
                     />
                   </div>
-                  <button className={Styles["signupBtn"]}>Sign Up</button>
+                  <Link to="/otp" className={Styles["signupBtn"]}>
+                    Sign Up
+                  </Link>
                   <div className={Styles["login-now"]}>
-                  <p>Already have an account?</p>
-                  <Link to="/login">Login</Link>
-                </div>
+                    <p>Already have an account?</p>
+                    <Link to="/login">Login</Link>
+                  </div>
                 </form>
               </div>
             </form>

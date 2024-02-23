@@ -2,45 +2,42 @@ import React, { useState } from "react";
 import ReactFlagsSelect from "react-flags-select";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhoneVolume, fas } from "@fortawesome/free-solid-svg-icons";
-import Styles from "./HeaderLvlOne.module.css";
-const HeaderLevelOne = ({ handleRadioChange, disabled }) => {
+import Styles from "./BannerSearch.module.css";
+import { setPlaceholder } from "../../../features/placeholder/placeholderSlice";
+import { setSearchCategory } from "../../../features/radioBtn/radioBtnSlice";
+import { useDispatch, useSelector } from "react-redux";
+import CompanySearch from "../../SearchBox/CompanySearch";
+const HeaderLevelOne = () => {
   const [selected, setSelected] = useState("IN");
-  const [isHovered, setIsHovered] = useState(1);
-  const handleMouseEnter = (index) => {
-    setIsHovered(index);
-  };
-  const handleMouseLeave = () => {
-    setIsHovered(1);
-  };
+  const [disabled, setDisabled] = useState(false);
   const items = [
     { id: 1, label: "Business", class: "isActive" },
     { id: 2, label: "Personal " },
     { id: 3, label: "Data Services" },
   ];
-  console.log(typeof companyname);
+  const dispatch = useDispatch();
+  const placeholderText = useSelector((state) => state.placeholder.value);
+  const searchCategory = useSelector((state) => state.searchType.value);
+  const handleRadioChange = (e) => {
+    const value = e.target.value;
+    if (value === "directorName") {
+      dispatch(setSearchCategory("directorName"));
+      dispatch(setPlaceholder("Search with Director Name"));
+      setDisabled(true);
+    } else if (value === "companyCin") {
+      dispatch(setSearchCategory("companyCin"));
+      dispatch(setPlaceholder("Search with Company Cin"));
+      setDisabled(true);
+    } else {
+      dispatch(setSearchCategory("companyName"));
+      dispatch(setPlaceholder("Search with Company Name"));
+      setDisabled(false);
+    }
+  };
   return (
     <div>
       <div className={Styles["header-level-1"]}>
-        <nav className={Styles["left-side-menu"]}>
-          <ul className={Styles["left-menu-items"]}>
-            {items.map((item) => (
-              <li
-                key={item.id}
-                className={`${Styles["left-top-item"]} ${
-                  isHovered === item.id ? Styles.isActive : ""
-                }`}
-                onMouseEnter={() => handleMouseEnter(item.id)}
-                onMouseLeave={handleMouseLeave}
-              >
-                <div className={Styles["left-top-tab-wrap"]}>
-                  <a href="/" className={Styles["left-menu-tab"]}>
-                    {item.label}
-                  </a>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <nav className={Styles["left-side-menu"]}></nav>
         <nav className={Styles["right-side-menu"]}>
           <div className={Styles["flag-left-container"]}>
             <ul className={Styles["top-menu-item"]}>
@@ -108,6 +105,10 @@ const HeaderLevelOne = ({ handleRadioChange, disabled }) => {
           </div>
         </nav>
       </div>
+      <CompanySearch
+        placeholderText={placeholderText}
+        searchCategory={searchCategory}
+      />
     </div>
   );
 };
