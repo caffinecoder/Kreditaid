@@ -22,8 +22,7 @@
 .right-side-menu {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  padding-top: 8px;
+  margin-bottom: 20px;
 }
 .flag-left-container {
   margin-right: 12px;
@@ -57,29 +56,6 @@
 .menuFlags ul input {
   border-radius: 6px;
   padding: 5px 8px;
-}
-.call-us-wrapper {
-  display: flex;
-  align-items: center;
-  height: 26px;
-  padding: 4px 16px 4px 2px;
-  align-items: center;
-  gap: 6px;
-  border-radius: 100px;
-  background: #fff0e5;
-}
-.call-us {
-  width: 26px;
-  height: 26px;
-  border-radius: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 0;
-  color: #fff;
-  background-color: #b02a30;
-  font-size: 11px;
-  margin-right: 8px;
 }
 /* top-left-menu-items */
 .left-menu-items {

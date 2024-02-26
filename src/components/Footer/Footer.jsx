@@ -38,7 +38,7 @@ const Footer = () => {
               </Link>
             </div>
             <div className={Styles["footer-image-wrap"]}>
-              <img src="footer-image.jpg" alt="footer-img" />
+              <img src="footer-image.svg" alt="footer-img" />
             </div>
           </div>
           <div className={Styles["footer-content-right"]}>

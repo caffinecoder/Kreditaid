@@ -7,7 +7,7 @@ import { setPlaceholder } from "../../../features/placeholder/placeholderSlice";
 import { setSearchCategory } from "../../../features/radioBtn/radioBtnSlice";
 import { useDispatch, useSelector } from "react-redux";
 import CompanySearch from "../../SearchBox/CompanySearch";
-const HeaderLevelOne = () => {
+const BannerSearch = () => {
   const [selected, setSelected] = useState("IN");
   const [disabled, setDisabled] = useState(false);
   const items = [
@@ -37,7 +37,6 @@ const HeaderLevelOne = () => {
   return (
     <div>
       <div className={Styles["header-level-1"]}>
-        <nav className={Styles["left-side-menu"]}></nav>
         <nav className={Styles["right-side-menu"]}>
           <div className={Styles["flag-left-container"]}>
             <ul className={Styles["top-menu-item"]}>
@@ -93,16 +92,6 @@ const HeaderLevelOne = () => {
               disabled={disabled}
             />
           </div>
-          <div className={Styles["flag-right-container"]}>
-            <div className={Styles["customer-care"]}>
-              <div className={Styles["call-us-wrapper"]}>
-                <div className={Styles["call-us"]}>
-                  <FontAwesomeIcon icon={faPhoneVolume} />
-                </div>
-                <span className={Styles["cust-care-num"]}>8851967714</span>
-              </div>
-            </div>
-          </div>
         </nav>
       </div>
       <CompanySearch
@@ -113,4 +102,4 @@ const HeaderLevelOne = () => {
   );
 };
 
-export default HeaderLevelOne;
+export default BannerSearch;

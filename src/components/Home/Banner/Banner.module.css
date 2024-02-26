@@ -1,6 +1,5 @@
 .banner {
   position: relative;
-  min-height: 500px;
 }
 .slide {
   position: relative;
@@ -12,13 +11,29 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  z-index: 99;
+  z-index: 9;
   transform: translate(-50%, -50%);
 }
 .banner-content {
-  padding: 20px;
+  padding: 20px 20px 40px;
   border-radius: 12px;
   background-color: var(--primary-bg-color);
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
     rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+.banner-container{
+  max-width: 800px;
+  width: 100%;
+}
+img{
+  width: 100%;
+}
+.title{
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.2;
+  margin-bottom: 18px;
+  color: var(--secondary-color);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
 }
