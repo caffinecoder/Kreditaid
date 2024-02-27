@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+export const login = createAsyncThunk()
 const initialState = {
   isLoggedIn: false,
   user: null,

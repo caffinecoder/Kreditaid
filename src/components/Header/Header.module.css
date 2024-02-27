@@ -1,7 +1,6 @@
 .header {
   padding: 6px 0;
   position: relative;
-  border-bottom: 1px solid #e9ecf6;
 }
 .header-container {
   display: flex;
@@ -38,6 +37,9 @@
 
 .humberger.open .humberger-line:nth-child(3) {
   transform: translateY(-10px) rotate(-45deg);
+}
+.humberger.open .header{
+  border-bottom: 1px solid #e9ecf6;
 }
 .left-content {
   display: flex;

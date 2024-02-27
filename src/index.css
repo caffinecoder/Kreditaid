@@ -94,11 +94,10 @@ button {
 .slick-prev,
 .slick-next {
   color: #000;
-  background-color: red;
 }
 .slick-next {
   right: 50px;
 }
 .slick-prev {
-  left: 50px;
+  left: 100px;
 }
