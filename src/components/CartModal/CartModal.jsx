@@ -2,14 +2,14 @@ import React from "react";
 import Styles from "./CartModal.module.css";
 import { RiCloseCircleFill } from "react-icons/ri";
 
-const CartModal = ({ handleModalCoseBtn, handleAddToCart }) => {
+const CartModal = ({ handleModalCloseBtn, handleAddToCart }) => {
   const handleModalClick = (e) => {
     e.stopPropagation();
   };
   return (
     <div className={Styles.modal} onClick={handleModalClick}>
       <div className={Styles["modal-container"]}>
-        <div className={Styles["close-btn"]} onClick={handleModalCoseBtn}>
+        <div className={Styles["close-btn"]} onClick={handleModalCloseBtn}>
           <RiCloseCircleFill />
         </div>
         <div className={Styles["modal-header"]}>

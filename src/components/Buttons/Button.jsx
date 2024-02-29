@@ -10,7 +10,7 @@ const CustomButton = ({ children, ...props }) => {
         {...props}
         sx={{
           borderRadius: "6px",
-          backgroundColor: "var(--primary-btn-bg-color)",
+          backgroundColor: "var(--secondary-btn-bg-color)",
           color: "var(--secondary-color)",
           position: "relative",
           fontWeight: "500",
@@ -19,6 +19,10 @@ const CustomButton = ({ children, ...props }) => {
           fontSize: "0.9rem",
           padding: "11px 20px",
           textTransform: "capitalize",
+          [theme.breakpoints.up("sm")]: {
+            fontSize: "1rem",
+            padding: "11px 20px",
+          },
           "&:hover": {
             backgroundColor: "var(--primary-btn-hover-color)",
           },

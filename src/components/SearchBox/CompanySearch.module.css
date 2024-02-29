@@ -11,6 +11,8 @@
   font-weight: 500;
   padding-left: 14px;
   position: relative;
+  max-width: 600px;
+  margin: 0 auto;
 }
 .input-wrap {
   display: flex;

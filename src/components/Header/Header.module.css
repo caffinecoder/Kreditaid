@@ -90,7 +90,7 @@
   color: var(--arrow-icon);
 }
 .loginBtn {
-  border: 0;
+  /* border: 0;
   background-color: var(--primary-btn-bg-color);
   font-family: "Poppins", sans-serif;
   border-radius: 6px;
@@ -98,7 +98,7 @@
   font-size: 0.9rem;
   font-weight: 500;
   padding: 10px 15px;
-  line-height: 0.9;
+  line-height: 0.9; */
   position: relative;
 }
 .mycart {
@@ -199,10 +199,6 @@
   .logo {
     width: 120px;
     margin: 0 15px;
-  }
-  .loginBtn {
-    font-size: 1rem;
-    padding: 11px 20px;
   }
   .arrow-down {
     font-size: 1rem;

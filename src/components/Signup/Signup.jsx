@@ -2,9 +2,29 @@ import React, { useState } from "react";
 import Styles from "./Signup.module.css";
 import { Link } from "react-router-dom";
 import Otp from "../Otp/Otp";
+import { useDispatch, useSelector } from "react-redux";
+import signupSlice, {
+  setSignupSuccess,
+  setSignupFailure,
+  setLogout,
+} from "../../features/signupAuth/signupAuthSlice";
 
 const Signup = () => {
-  const [okToSigup, setOkToSignup] = useState(false);
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [fullName, setFullName] = useState("");
+  const signupSucess = useSelector((state) => state.signupAuth.isSignedup);
+  const signupFailure = useSelector((state) => state.signupAuth.isSignedup);
+  const handleSignup = (e) => {
+    e.preventDefault();
+    if (fullName && email && password) {
+      dispatch(setSignupSuccess("App Login Hogye"));
+      console.log('hi')
+    } else {
+      dispatch(setSignupFailure("Please Fill The Email & Password"));
+    }
+  };
   return (
     <div>
       <div className={Styles["signup-form-wrap"]}>
@@ -16,14 +36,15 @@ const Signup = () => {
             <form className={Styles["form"]}>
               <div className={Styles["form-container"]}>
                 <p className={Styles.title}>Register</p>
-                <form className={Styles["form"]}>
+                <div className={Styles["form"]}>
                   <div className={Styles["input-group"]}>
                     <label htmlFor="username">Full Name</label>
                     <input
                       type="text"
                       name="username"
-                      id="username"
-                      placeholder="Email"
+                      value={fullName}
+                      placeholder="Full Name"
+                      onChange={(e) => setFullName(e.target.value)}
                     />
                   </div>
                   <div className={Styles["input-group"]}>
@@ -31,8 +52,9 @@ const Signup = () => {
                     <input
                       type="text"
                       name="username"
-                      id="username"
+                      value={email}
                       placeholder="Email"
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
                   <div className={Styles["input-group"]}>
@@ -40,18 +62,24 @@ const Signup = () => {
                     <input
                       type="password"
                       name="password"
-                      id="password"
+                      value={password}
                       placeholder="Password"
+                      onChange={(e) => setPassword(e.target.value)}
                     />
                   </div>
-                  <Link to="/otp" className={Styles["signupBtn"]}>
+                  <button
+                    className={Styles["signupBtn"]}
+                    onClick={handleSignup}
+                  >
                     Sign Up
-                  </Link>
+                  </button>
+                  {signupSucess && <p>{signupSucess}</p>}
+                  {signupFailure && <p>{signupFailure}</p>}
                   <div className={Styles["login-now"]}>
                     <p>Already have an account?</p>
                     <Link to="/login">Login</Link>
                   </div>
-                </form>
+                </div>
               </div>
             </form>
           </div>

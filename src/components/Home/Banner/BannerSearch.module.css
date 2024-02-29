@@ -1,6 +1,6 @@
 .header-level-1 {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
 }
 .top-menu-item {
@@ -17,7 +17,7 @@
 .menu-text {
   font-size: 1rem;
   font-weight: 500;
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 .right-side-menu {
   display: flex;
@@ -28,15 +28,18 @@
   margin-right: 12px;
 }
 .flag-container {
-  /* max-width: 250px;
-    width: 100%; */
   width: 180px;
   margin-right: 10px;
   position: relative;
 }
 .menuFlags button {
   padding: 3px 15px;
+  color: var(--secondary-color);
   border-radius: 20px;
+  border-color: var(--secondary-color);
+}
+.menuFlags button::after{
+  border-top: 5px solid #fff;
 }
 .menuFlags ul {
   scrollbar-width: thin;
@@ -52,6 +55,9 @@
 }
 .menuFlags span {
   overflow: hidden;
+}
+.menuFlags span::after {
+  color: var(--secondary-color);
 }
 .menuFlags ul input {
   border-radius: 6px;

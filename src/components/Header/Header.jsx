@@ -11,64 +11,79 @@ import { PiPackageFill } from "react-icons/pi";
 import { CiHeart } from "react-icons/ci";
 import Navbar from "../Navbar/Navbar";
 import CartModal from "../CartModal/CartModal";
+import CustomButton from "../Buttons/Button";
+import Overlay from "../Overlay/Overlay";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
-  const [overlayVisible, setOverlayVisible] = useState(false);
+  const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+
   const toggleCart = () => {
     setIsOpen(!isOpen);
-    setOverlayVisible(true);
+    setIsOverlayOpen(true);
   };
+
   const handleModalCloseBtn = () => {
     setIsOpen(false);
-    setOverlayVisible(false);
+    setIsOverlayOpen(false);
   };
+
   const items = [
     { id: 1, label: "My Profile" },
     { id: 2, label: "Order" },
     { id: 3, label: "Wishlist" },
   ];
+
   const dispatch = useDispatch();
   const count = useSelector((state) => state.counter.value);
+
   const handleAddToCart = () => {
     dispatch(increment());
   };
+
   const toggleMenu = () => {
     setIsBurgerOpen(!isBurgerOpen);
   };
+
   return (
     <header className={Styles.header}>
       <div className={`${Styles["header-container"]} container`}>
+        {/* Left Content */}
         <div className={Styles["left-content"]}>
+          {/* Burger Menu */}
           <div
-            className={`${Styles["humberger"]} ${isBurgerOpen ? "open" : ""}`}
+            className={`${Styles["hamburger"]} ${isBurgerOpen ? "open" : ""}`}
             onClick={toggleMenu}
           >
-            <span className={Styles["humberger-line"]}></span>
-            <span className={Styles["humberger-line"]}></span>
-            <span className={Styles["humberger-line"]}></span>
+            <span className={Styles["hamburger-line"]}></span>
+            <span className={Styles["hamburger-line"]}></span>
+            <span className={Styles["hamburger-line"]}></span>
           </div>
           {isBurgerOpen && <Navbar />}
+          {/* Logo */}
           <div className={Styles["logo"]}>
             <Link to="/">
               <img
                 src={"https://kreditaid.com/assets/website/kreditaid.png"}
                 className={Styles["logo-img"]}
+                alt="Logo"
               />
             </Link>
           </div>
         </div>
+        {/* Right Content */}
         <div className={Styles["right-content"]}>
-          <div className={Styles[""]}>
-            {/* Navbar - Visible on Desktop  */}
-            <Navbar className={Styles["desktop-nav"]} />
+          {/* Desktop Navbar */}
+          <div className={Styles["desktop-nav"]}>
+            <Navbar />
           </div>
           {/* Login Dropdown */}
           <div className={Styles["login-dropdown"]}>
             <Link to="/login" className={Styles["loginBtn"]}>
-              Login
-              <IoIosArrowDown className={Styles["arrow-down"]} />
+              <CustomButton>
+                Login <IoIosArrowDown className={Styles["arrow-down"]} />
+              </CustomButton>
               <div className={Styles["login-inner"]}>
                 <ul className={Styles["login-menu"]}>
                   <div className={Styles["login-title-wrap"]}>
@@ -79,20 +94,20 @@ const Header = () => {
                       Sign Up
                     </Link>
                   </div>
-                  {items.map((item, idx) => (
-                    <li key={idx} className={Styles["login-item"]}>
+                  {items.map((item) => (
+                    <li key={item.id} className={Styles["login-item"]}>
                       <a href="/" className={Styles["login-item-link"]}>
-                        {idx === 0 && (
+                        {item.id === 1 && (
                           <FaRegUserCircle
                             className={Styles["login-item-icon"]}
                           />
                         )}
-                        {idx === 1 && (
+                        {item.id === 2 && (
                           <PiPackageFill
                             className={Styles["login-item-icon"]}
                           />
                         )}
-                        {idx === 2 && (
+                        {item.id === 3 && (
                           <CiHeart className={Styles["login-item-icon"]} />
                         )}
                         {item.label}
@@ -103,7 +118,12 @@ const Header = () => {
               </div>
             </Link>
           </div>
+          {/* My Cart */}
           <div className={Styles["mycart"]} onClick={toggleCart}>
+            <Overlay
+              isOverlayOpen={isOverlayOpen}
+              onClose={handleModalCloseBtn}
+            />
             {isOpen && (
               <CartModal
                 handleModalCloseBtn={handleModalCloseBtn}
