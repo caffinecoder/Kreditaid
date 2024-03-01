@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Styles from "./Navbar.module.css";
 import { IoIosArrowDown } from "react-icons/io";
-import SubMenu from "../Header/SubMenu";
+import SubMenu from "../../Header/SubMenu";
 const Navbar = ({ setOverlayVisible, className }) => {
   const [hovered, setHovered] = useState(false);
   const handleMouseEnter = () => {

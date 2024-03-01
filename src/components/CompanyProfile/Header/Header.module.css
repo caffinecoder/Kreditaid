@@ -1,0 +1,254 @@
+.header {
+  padding: 6px 0;
+  position: relative;
+}
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.humberger {
+  display: flex;
+  flex-direction: column;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+.humberger-line {
+  display: inline-block;
+  width: 100%;
+  height: 3px;
+  margin: 3px 0;
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+  background-color: var(--primary-btn-bg-color);
+}
+.humberger-line:nth-child(1) {
+  margin-top: 0;
+}
+.humberger.open .humberger-line:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.humberger.open .humberger-line:nth-child(2) {
+  display: none;
+}
+
+.humberger.open .humberger-line:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+.humberger.open .header {
+  border-bottom: 1px solid #e9ecf6;
+}
+.left-content {
+  display: flex;
+  align-items: center;
+}
+.mid-content {
+  max-width: 650px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.logo {
+  width: 100px;
+  margin: 0 12px;
+}
+.logo-img {
+  width: 100%;
+}
+.right-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.desktop-nav {
+  display: none;
+}
+.mega-menu {
+  margin: 0 12px;
+}
+.mega-items {
+  display: flex;
+  align-items: center;
+}
+.menu-nav-tab {
+  font-size: 1rem;
+  padding: 5px 8px;
+  color: #333;
+  position: relative;
+  cursor: pointer;
+}
+.menu-item-nav {
+  margin: 0 5px;
+  position: relative;
+}
+.menu-item-nav:hover .menu-nav-tab {
+  color: var(--hover-color);
+}
+.arrow-down {
+  margin-left: 4px;
+  font-size: 0.9rem;
+}
+.menu-item-nav:hover .arrow-down {
+  transform: rotate(180deg);
+  color: var(--arrow-icon);
+}
+.loginBtn {
+  position: relative;
+}
+.mycart {
+  margin-left: 15px;
+  font-size: 1.9rem;
+  position: relative;
+  color: var(--primary-btn-bg-color);
+  cursor: pointer;
+}
+.mycart-count {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -7px;
+  right: 6px;
+  width: 18px;
+  height: 18px;
+  font-weight: 600;
+  border-radius: 50%;
+  color: var(--arrow-icon);
+  text-align: center;
+  font-size: 0.7rem;
+}
+.login-inner {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0px);
+  right: -34px;
+  width: 259px;
+  padding: 10px 10px;
+}
+.login-inner::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 10px;
+  right: 38px;
+  top: 6px;
+  background-image: url("https://www.icicibank.com/etc.clientlibs/icicibank/clientlibs/clientlib-base-v2/resources/images/dropdown-level1-arrow.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  z-index: 999;
+}
+.login-menu {
+  max-height: 348px;
+  padding: 20px 12px 12px;
+  border-radius: 12px;
+  border: solid 1.5px #f37e20;
+  overflow: hidden;
+  background-color: var(--primary-bg-color);
+  z-index: 9;
+  position: relative;
+}
+.login-title-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 1px 16px;
+  border-bottom: 1px solid #dedede;
+}
+.login-title {
+  font-weight: var(--fw400);
+  color: var(--primary-color);
+}
+.login-sign-up {
+  font-weight: 500;
+}
+.login-item {
+  text-align: left;
+}
+.login-item-icon {
+  margin-right: 10px;
+  font-size: 1.3rem;
+}
+.login-item:not(:last-child) {
+  border-bottom: 1px solid #dedede;
+}
+.login-item-link {
+  display: flex;
+  align-items: center;
+  color: var(--primary-color);
+  font-size: 1rem;
+  font-weight: var(--fw400);
+  padding: 10px 10px;
+}
+.loginBtn:hover .login-inner {
+  display: block;
+}
+.loginBtn:hover .arrow-down {
+  transform: rotate(180deg);
+  color: var(--secondary-color);
+}
+.countryList button {
+  padding: 2px 15px;
+  color: var(--primary-color);
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+.countryList button::after {
+  border-top: 5px solid #000;
+}
+.companySearch{
+  width: 100%;
+}
+.companySearch input{
+  width: 78%;
+}
+@media screen and (min-width: 575px) {
+  .logo {
+    width: 120px;
+    margin: 0 15px;
+  }
+  .arrow-down {
+    font-size: 1rem;
+  }
+  .login-inner::before {
+    right: 40px;
+  }
+  .login-inner {
+    width: 270px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .logo {
+    width: 125px;
+  }
+  .login-inner::before {
+    right: 42px;
+  }
+  .mycart {
+    font-size: 2rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .header {
+    padding: 0;
+  }
+  .humberger {
+    display: none;
+  }
+  .logo {
+    margin: 0;
+  }
+  .desktop-nav {
+    display: block;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .logo {
+    width: 140px;
+  }
+}

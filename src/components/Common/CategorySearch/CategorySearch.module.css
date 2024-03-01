@@ -19,11 +19,6 @@
   font-weight: 500;
   color: var(--secondary-color);
 }
-.right-side-menu {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
 .flag-left-container {
   margin-right: 12px;
 }

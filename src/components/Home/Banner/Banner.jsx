@@ -1,26 +1,41 @@
 import React from "react";
 import Styles from "./Banner.module.css";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import BannerSearch from "./BannerSearch";
+import { setPlaceholder } from "../../../features/placeholder/placeholderSlice";
+import { setSearchCategory } from "../../../features/radioBtn/radioBtnSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import CategorySearch from "../../Common/CategorySearch/CategorySearch";
+import CompanySearch from "../../Common/SearchBox/CompanySearch";
+import CountryList from "../../Common/CountryList/CountryList";
 
 const Banner = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 3000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
+  const [selected, setSelected] = useState("IN");
+  const [disabled, setDisabled] = useState(false);
+  const dispatch = useDispatch();
+  const placeholderText = useSelector((state) => state.placeholder.value);
+  const searchCategory = useSelector((state) => state.searchType.value);
+  const handleRadioChange = (e) => {
+    const value = e.target.value;
+    if (value === "directorName") {
+      dispatch(setSearchCategory("directorName"));
+      dispatch(setPlaceholder("Search with Director Name"));
+      setDisabled(true);
+    } else if (value === "companyCin") {
+      dispatch(setSearchCategory("companyCin"));
+      dispatch(setPlaceholder("Search with Company Cin"));
+      setDisabled(true);
+    } else {
+      dispatch(setSearchCategory("companyName"));
+      dispatch(setPlaceholder("Search with Company Name"));
+      setDisabled(false);
+    }
   };
   return (
     <div>
       <section className={Styles["banner"]}>
         <div className={`${Styles["banner-container"]} container `}>
           <div className={Styles["banner-card-wrap"]}>
-            <div className={Styles["banner-left"]}>
+            <div className={Styles["banner-content-wrap"]}>
               <h1 className={Styles["title"]}>
                 Unlocking, Insights,
                 <br />
@@ -28,11 +43,16 @@ const Banner = () => {
               </h1>
               <div className={Styles["banner-content"]}>
                 <div>
-                  <BannerSearch />
+                  <div className={Styles["category"]}>
+                    <CategorySearch handleRadioChange={handleRadioChange} />
+                    <CountryList disabled={disabled} />
+                  </div>
+                  <div className={Styles["companySearch"]}>
+                    <CompanySearch />
+                  </div>
                 </div>
               </div>
             </div>
-            <div className={Styles["banner-right"]}></div>
           </div>
         </div>
       </section>

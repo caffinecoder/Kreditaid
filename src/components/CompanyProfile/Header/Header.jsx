@@ -5,14 +5,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { IoIosArrowDown } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
-import { increment } from "../../features/counter/counterSlice";
+import { increment } from "../../../features/counter/counterSlice";
 import { FaRegUserCircle } from "react-icons/fa";
 import { PiPackageFill } from "react-icons/pi";
 import { CiHeart } from "react-icons/ci";
-import Navbar from "../common/Navbar/Navbar";
-import CartModal from "../CartModal/CartModal";
-import CustomButton from "../Buttons/Button";
-import Overlay from "../Overlay/Overlay";
+import Navbar from "../../common/Navbar/Navbar";
+import CartModal from "../../CartModal/CartModal";
+import CustomButton from "../../Buttons/Button";
+import Overlay from "../.././Overlay/Overlay";
+import CountryList from "../../Common/CountryList/CountryList";
+import CompanySearch from "../../Common/SearchBox/CompanySearch";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -72,12 +74,16 @@ const Header = () => {
             </Link>
           </div>
         </div>
+        <div className={Styles["mid-content"]}>
+          <div className={Styles["countryList"]}>
+            <CountryList />
+          </div>
+          <div className={Styles["companySearch"]}>
+            <CompanySearch />
+          </div>
+        </div>
         {/* Right Content */}
         <div className={Styles["right-content"]}>
-          {/* Desktop Navbar */}
-          <div className={Styles["desktop-nav"]}>
-            <Navbar />
-          </div>
           {/* Login Dropdown */}
           <div className={Styles["login-dropdown"]}>
             <Link to="/login" className={Styles["loginBtn"]}>

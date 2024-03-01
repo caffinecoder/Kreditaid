@@ -6,8 +6,12 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import Styles from "./CompanySearch.module.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
-const CompanySearch = ({ placeholderText, searchCategory }) => {
+const CompanySearch = () => {
+  const dispatch = useDispatch();
+  const placeholderText = useSelector((state) => state.placeholder.value);
+  const searchCategory = useSelector((state) => state.searchType.value);
   const [searchTerm, setSearchTerm] = useState("");
   const [companyName, setCompanyName] = useState([]);
   const [showResults, setShowResults] = useState(false);
@@ -73,6 +77,7 @@ const CompanySearch = ({ placeholderText, searchCategory }) => {
           onChange={handleInputChange}
           onKeyDown={handleKeyPress}
         />
+        <div className={Styles["input-right"]}>
         <div className={Styles["search-whole"]}>
           <button className={Styles["search-btn"]} onClick={handleSearch}>
             <FontAwesomeIcon icon={faMagnifyingGlass} />
@@ -80,6 +85,7 @@ const CompanySearch = ({ placeholderText, searchCategory }) => {
         </div>
         <div className={Styles["mic-whole"]}>
           <FontAwesomeIcon icon={faMicrophone} />
+        </div>
         </div>
       </div>
       <div

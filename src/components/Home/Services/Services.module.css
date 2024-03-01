@@ -1,0 +1,39 @@
+.services-listing {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.services-list {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  width: 380px;
+  height: 345px;
+  padding: 32px;
+  margin-bottom: 25px;
+}
+.services-icon {
+  margin-bottom: 1rem /* 16px */;
+  width: 2.75rem /* 44px */;
+  height: 2.75rem /* 44px */;
+}
+.services-title {
+  color: #1d3a36;
+  font-size: 18px;
+  line-height: 1.5rem /* 24px */;
+  font-weight: 600;
+  margin-bottom: 0.75rem /* 12px */;
+}
+.services-para {
+  color: #666c66;
+  font-size: 1rem /* 16px */;
+  line-height: 1.5rem /* 24px */;
+  font-weight: 400;
+  margin-bottom: 1.25rem /* 20px */;
+}
+.readMore-btn {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+.readMore-icon {
+  margin-left: 0.25rem /* 4px */;
+}

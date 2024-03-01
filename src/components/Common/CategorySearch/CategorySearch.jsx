@@ -1,39 +1,12 @@
-import React, { useState } from "react";
-import ReactFlagsSelect from "react-flags-select";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPhoneVolume, fas } from "@fortawesome/free-solid-svg-icons";
-import Styles from "./BannerSearch.module.css";
-import { setPlaceholder } from "../../../features/placeholder/placeholderSlice";
-import { setSearchCategory } from "../../../features/radioBtn/radioBtnSlice";
-import { useDispatch, useSelector } from "react-redux";
-import CompanySearch from "../../SearchBox/CompanySearch";
-const BannerSearch = () => {
-  const [selected, setSelected] = useState("IN");
-  const [disabled, setDisabled] = useState(false);
+import React from "react";
+import Styles from "./CategorySearch.module.css";
+import CountryList from "../CountryList/CountryList";
+const BannerSearch = ({ handleRadioChange }) => {
   const items = [
     { id: 1, label: "Business", class: "isActive" },
     { id: 2, label: "Personal " },
     { id: 3, label: "Data Services" },
   ];
-  const dispatch = useDispatch();
-  const placeholderText = useSelector((state) => state.placeholder.value);
-  const searchCategory = useSelector((state) => state.searchType.value);
-  const handleRadioChange = (e) => {
-    const value = e.target.value;
-    if (value === "directorName") {
-      dispatch(setSearchCategory("directorName"));
-      dispatch(setPlaceholder("Search with Director Name"));
-      setDisabled(true);
-    } else if (value === "companyCin") {
-      dispatch(setSearchCategory("companyCin"));
-      dispatch(setPlaceholder("Search with Company Cin"));
-      setDisabled(true);
-    } else {
-      dispatch(setSearchCategory("companyName"));
-      dispatch(setPlaceholder("Search with Company Name"));
-      setDisabled(false);
-    }
-  };
   return (
     <div>
       <div className={Styles["header-level-1"]}>
@@ -83,21 +56,8 @@ const BannerSearch = () => {
               </li>
             </ul>
           </div>
-          <div className={Styles["flag-container"]}>
-            <ReactFlagsSelect
-              selected={selected}
-              onSelect={(code) => setSelected(code)}
-              className={Styles.menuFlags}
-              searchable
-              disabled={disabled}
-            />
-          </div>
         </nav>
       </div>
-      <CompanySearch
-        placeholderText={placeholderText}
-        searchCategory={searchCategory}
-      />
     </div>
   );
 };

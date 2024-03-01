@@ -3,6 +3,7 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 :root {
   --fs1: 2rem;
   --fs2: 1.6rem;
@@ -87,6 +88,7 @@ button {
   font-size: 1rem;
   font-weight: 400;
   border: none;
+  cursor: pointer;
   color: var(--secondary-color);
 }
 

@@ -1,0 +1,39 @@
+.flag-container {
+    width: 180px;
+    margin-right: 10px;
+    position: relative;
+  }
+  .menuFlags{
+    padding-bottom: 0 !important;
+  }
+  .menuFlags button {
+    padding: 3px 15px;
+    color: var(--secondary-color);
+    border-radius: 20px;
+    border-color: var(--secondary-color);
+  }
+  .menuFlags button::after{
+    border-top: 5px solid #fff;
+  }
+  .menuFlags ul {
+    scrollbar-width: thin;
+    position: absolute;
+    right: -17px;
+    top: auto;
+    z-index: 99;
+    border: 1px solid #f37e20;
+    border-radius: 12px;
+    max-width: 200px;
+    background-color: #fff;
+    width: max-content;
+  }
+  .menuFlags span {
+    overflow: hidden;
+  }
+  .menuFlags span::after {
+    color: var(--secondary-color);
+  }
+  .menuFlags ul input {
+    border-radius: 6px;
+    padding: 5px 8px;
+  }
