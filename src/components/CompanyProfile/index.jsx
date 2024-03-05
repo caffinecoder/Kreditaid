@@ -1,13 +1,14 @@
 import React from "react";
 import Header from "./Header/Header";
-import Sidebar from "./Sidebar/Sidebar";
+import Sidebar from "./Banner/banneer";
+import Banner from "./Banner/banneer";
 
 const CompanyIndex = () => {
   return (
-    <div>
+    <>
       <Header />
-      <Sidebar />
-    </div>
+      <Banner />
+    </>
   );
 };
 

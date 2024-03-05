@@ -234,9 +234,6 @@
   }
 }
 @media screen and (min-width: 992px) {
-  .header {
-    padding: 0;
-  }
   .humberger {
     display: none;
   }

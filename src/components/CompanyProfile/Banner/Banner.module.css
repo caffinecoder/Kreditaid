@@ -1,0 +1,75 @@
+.banner {
+  padding: 10px 0 30px;
+}
+.company-info-wrap {
+  padding-bottom: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+.banner-bg {
+  width: 100%;
+  height: 200px;
+  background-color: #e1e7ed;
+  background: url("https://source.unsplash.com/9wg5jCEPBsw");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+.company-dp {
+  width: 120px;
+  height: 120px;
+  background-color: #868d9b;
+  background: url("https://kreditaid.com/assets/companyLogo/U74899HR1995PTC088423.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  margin: 0 auto;
+  margin-top: -60px;
+}
+.personal-details {
+  text-align: center;
+}
+.company-name {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin: 12px 0 2px;
+  line-height: 1.3;
+}
+.active {
+  color: red;
+}
+.overview {
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+.title {
+  padding: 15px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  position: relative;
+}
+.title::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  border-bottom: 1px solid rgba(27, 31, 35, 0.15);
+}
+.overview-para {
+  padding: 15px;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+.company-info {
+  margin: 12px 0;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
