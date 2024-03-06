@@ -1,0 +1,44 @@
+.contact {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+.info-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 15px;
+}
+.info-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.info-header::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  border-bottom: 1px solid rgba(27, 31, 35, 0.15);
+}
+.contact-grid {
+  padding: 15px;
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+}
+.details h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  text-decoration: underline;
+}
+.details p {
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--gray-darkest);
+}

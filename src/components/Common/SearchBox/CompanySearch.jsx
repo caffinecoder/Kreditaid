@@ -16,7 +16,9 @@ const CompanySearch = () => {
   const [companyName, setCompanyName] = useState([]);
   const [showResults, setShowResults] = useState(false);
   const searchBoxRef = useRef(null);
+  const inputRef = useRef();
   const handleSearch = async () => {
+    inputRef.current.placeholder = "You dont need to click me its auto search type something";
     try {
       const response = await fetch(
         `http://206.189.135.190/api/commonSearch?source=kreditaid&searchKeyWord=${searchTerm}&searchType=${searchCategory}`
@@ -74,18 +76,19 @@ const CompanySearch = () => {
           className={Styles["comp-search-input"]}
           placeholder={placeholderText}
           value={searchTerm}
+          ref={inputRef}
           onChange={handleInputChange}
           onKeyDown={handleKeyPress}
         />
         <div className={Styles["input-right"]}>
-        <div className={Styles["search-whole"]}>
-          <button className={Styles["search-btn"]} onClick={handleSearch}>
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
-          </button>
-        </div>
-        <div className={Styles["mic-whole"]}>
-          <FontAwesomeIcon icon={faMicrophone} />
-        </div>
+          <div className={Styles["search-whole"]}>
+            <button className={Styles["search-btn"]} onClick={handleSearch}>
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </button>
+          </div>
+          <div className={Styles["mic-whole"]}>
+            <FontAwesomeIcon icon={faMicrophone} />
+          </div>
         </div>
       </div>
       <div

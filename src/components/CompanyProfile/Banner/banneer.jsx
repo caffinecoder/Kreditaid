@@ -5,6 +5,10 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import Companyinfo from "../CompanyInfo/Companyinfo";
+import Contact from "../Contact/Contact";
+import Faq from "../Faq/Faq";
+import { Style } from "@mui/icons-material";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -94,7 +98,16 @@ const Banner = () => {
               index={0}
               className={Styles["company-info"]}
             >
-              <div>HI I am First Details</div>
+              <div className={Styles["info"]}>
+                <div className={Styles["info-header"]}>
+                  <h2 className={Styles["info-title"]}>Company Information</h2>
+                  <p>
+                    Basic Data Updated:{" "}
+                    <span className={Styles["updated"]}>15Days ago</span>
+                  </p>
+                </div>
+                <Companyinfo />
+              </div>
             </CustomTabPanel>
             <CustomTabPanel
               value={value}
@@ -125,6 +138,12 @@ const Banner = () => {
               Item Five
             </CustomTabPanel>
           </Box>
+        </div>
+        <div className={Style["contact"]}>
+          <Contact />
+        </div>
+        <div className={Styles["faq"]}>
+          <Faq />
         </div>
       </div>
     </section>
