@@ -17,11 +17,21 @@ const CompanySearch = () => {
   const [showResults, setShowResults] = useState(false);
   const searchBoxRef = useRef(null);
   const inputRef = useRef();
+
   const handleSearch = async () => {
-    inputRef.current.placeholder = "You dont need to click me its auto search type something";
+    inputRef.current.placeholder =
+      "You dont need to click me its auto search type something";
     try {
       const response = await fetch(
-        `http://206.189.135.190/api/commonSearch?source=kreditaid&searchKeyWord=${searchTerm}&searchType=${searchCategory}`
+        `http://206.189.135.190/api/commonSearch?source=kreditaid&searchKeyWord=${searchTerm}&searchType=${searchCategory}`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: "KreditAid!#Tech$%Ali&*Insight^@UCSFinance$",
+            "Content-Type": "application/json",
+            Host: "kreditaid.com",
+          },
+        }
       );
       const data = await response.json();
       setCompanyName(data.data);

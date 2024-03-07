@@ -9,6 +9,8 @@ import Companyinfo from "../CompanyInfo/Companyinfo";
 import Contact from "../Contact/Contact";
 import Faq from "../Faq/Faq";
 import { Style } from "@mui/icons-material";
+import Button from "../../Buttons/Button";
+import TopWidget from "../Widgets/TopWidget";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -53,19 +55,29 @@ const Banner = () => {
     <section className={Styles["banner"]}>
       <div className={`${Styles["container"]} container`}>
         <div className={Styles["company-info-wrap"]}>
-          <div className={Styles["banner-bg"]}></div>
-          <div className={Styles["company-dp"]}></div>
-          <div className={Styles["company-details"]}>
-            <div className={Styles["personal-details"]}>
-              <h3 className={Styles["company-name"]}>
-                Unified Credit Solution Pvt. Ltd
-              </h3>
-              <p className={Styles["status"]}>
-                Status: <span className={Styles["active"]}> Active</span>
-              </p>
+          <div className={Styles["banner-left"]}>
+            <div className={Styles["banner-bg"]}></div>
+            <div className={Styles["company-dp"]}></div>
+            <div className={Styles["company-details"]}>
+              <div className={Styles["personal-details"]}>
+                <h3 className={Styles["company-name"]}>
+                  Unified Credit Solution Pvt. Ltd
+                </h3>
+                <p className={Styles["status"]}>
+                  Status: <span className={Styles["active"]}> Active</span>
+                </p>
+              </div>
+                <div className={Styles["tooltip-container"]}>
+                  <span class={Styles["tooltip"]}>Click Me To Update</span>
+                  <Button className={Styles['update-btn']} >Update</Button>
+                </div>
             </div>
           </div>
+          <div className={Styles["banner-right"]}>
+            <TopWidget/>
+          </div>
         </div>
+
         <div className={Styles["overview"]}>
           <h2 className={Styles["title"]}>About</h2>
           <p className={Styles["overview-para"]}>

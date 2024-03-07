@@ -1,0 +1,17 @@
+.widget-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.item-img-wrap {
+  margin-right: 10px;
+}
+.item-img {
+  width: 25px;
+  height: 25px;
+}
+.item-label {
+  font-size: 1;
+  font-weight: 400;
+  margin: 0 8px;
+}

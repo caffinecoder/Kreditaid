@@ -9,7 +9,7 @@ import Paper from "@mui/material/Paper";
 import { Padding } from "@mui/icons-material";
 
 function createData(labels, labelsData) {
-  return { labels, labelsData, labelsData };
+  return { labels, labelsData };
 }
 
 const rows = [

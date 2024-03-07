@@ -2,9 +2,26 @@
   padding: 10px 0 30px;
 }
 .company-info-wrap {
+  display: flex;
+  gap: 20px;
+}
+.banner-left {
+  width: 70%;
   padding-bottom: 20px;
   border-radius: 8px;
   overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+.update-btn{
+  border-radius: 50px !important;
+}
+.banner-right {
+  width: calc(100% - 70%);
+  padding-bottom: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 18px;
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
     rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
@@ -28,17 +45,63 @@
   background-position: center;
   border: 2px solid #ffffff;
   border-radius: 8px;
-  margin: 0 auto;
-  margin-top: -60px;
+  margin: -60px auto auto 30px;
 }
+.company-details {
+  position: relative;
+}
+.tooltip {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.8);
+  transform-origin: bottom;
+  padding: 0.3em 0.6em;
+  opacity: 0;
+  color: var(--secondary-color);
+  pointer-events: none;
+  transition: all 0.3s;
+  background: rgb(38, 180, 236);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+}
+.tooltip::before {
+  position: absolute;
+  content: "";
+  height: 0.6em;
+  width: 0.6em;
+  bottom: -0.2em;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  background: rgb(38, 180, 236);
+}
+.tooltip-container {
+  position: absolute;
+  top: -55px;
+  width: fit-content;
+  right: 25%;
+}
+.tooltip-container:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) scale(1);
+}
+.tooltip-container:hover {
+  transform: scale(1);
+}
+
 .personal-details {
-  text-align: center;
+  padding-left: 30px;
 }
 .company-name {
   font-size: 1.5rem;
   color: var(--primary-color);
   margin: 12px 0 2px;
   line-height: 1.3;
+  font-weight: 600;
 }
 .active {
   color: green;
@@ -48,12 +111,14 @@
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
     rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  overflow: hidden;
 }
 .title {
   padding: 15px;
   font-size: 1.2rem;
   font-weight: 600;
   position: relative;
+  background-color: #f9f9fb;
 }
 .title::after {
   content: "";
@@ -85,6 +150,7 @@
   justify-content: space-between;
   position: relative;
   padding: 15px;
+  background-color: #f9f9fb;
 }
 .info-title {
   font-size: 1.2rem;
