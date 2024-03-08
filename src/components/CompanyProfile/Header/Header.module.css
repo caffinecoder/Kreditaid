@@ -1,6 +1,10 @@
 .header {
   padding: 6px 0;
-  position: relative;
+  position: sticky;
+  top: 0;
+  position: -webkit-sticky;
+  background-color: #ffffff;
+  z-index: 1000;
 }
 .header-container {
   display: flex;
@@ -201,10 +205,10 @@
 .countryList button::after {
   border-top: 5px solid #000;
 }
-.companySearch{
+.companySearch {
   width: 100%;
 }
-.companySearch input{
+.companySearch input {
   width: 78%;
 }
 @media screen and (min-width: 575px) {

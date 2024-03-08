@@ -11,6 +11,9 @@ import Faq from "../Faq/Faq";
 import { Style } from "@mui/icons-material";
 import Button from "../../Buttons/Button";
 import TopWidget from "../Widgets/TopWidget";
+import DirectorDetails from "../DirectorDetails/DirectorDetails";
+import FinancialReport from "../FinancialReport/FinancialReport";
+import KeyPersonnel from "../KeyPersonnel/KeyPersonnel";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -61,20 +64,20 @@ const Banner = () => {
             <div className={Styles["company-details"]}>
               <div className={Styles["personal-details"]}>
                 <h3 className={Styles["company-name"]}>
-                  Unified Credit Solution Pvt. Ltd
+                  Unified Credit Solution
                 </h3>
                 <p className={Styles["status"]}>
                   Status: <span className={Styles["active"]}> Active</span>
                 </p>
               </div>
-                <div className={Styles["tooltip-container"]}>
-                  <span class={Styles["tooltip"]}>Click Me To Update</span>
-                  <Button className={Styles['update-btn']} >Update</Button>
-                </div>
+              <div className={Styles["tooltip-container"]}>
+                <span class={Styles["tooltip"]}>Click Me To Update</span>
+                <Button className={Styles["update-btn"]}>Update</Button>
+              </div>
             </div>
           </div>
           <div className={Styles["banner-right"]}>
-            <TopWidget/>
+            <TopWidget />
           </div>
         </div>
 
@@ -126,21 +129,48 @@ const Banner = () => {
               index={1}
               className={Styles["company-info"]}
             >
-              Item Two
+              <div className={Styles["info"]}>
+                <div className={Styles["info-header"]}>
+                  <h2 className={Styles["info-title"]}>Director Details</h2>
+                  <p>
+                    Basic Data Updated:{" "}
+                    <span className={Styles["updated"]}>15Days ago</span>
+                  </p>
+                </div>
+                <DirectorDetails />
+              </div>
             </CustomTabPanel>
             <CustomTabPanel
               value={value}
               index={2}
               className={Styles["company-info"]}
             >
-              Item Three
+              <div className={Styles["info"]}>
+                <div className={Styles["info-header"]}>
+                  <h2 className={Styles["info-title"]}>Financial Report</h2>
+                  <p>
+                    Basic Data Updated
+                    <span className={Styles["updated"]}>15Days ago</span>
+                  </p>
+                </div>
+                <FinancialReport />
+              </div>
             </CustomTabPanel>
             <CustomTabPanel
               value={value}
               index={3}
               className={Styles["company-info"]}
             >
-              Item Four
+              <div className={Styles["info"]}>
+                <div className={Styles["info-header"]}>
+                  <h2 className={Styles["info-title"]}>Key Personnel</h2>
+                  <p>
+                    Basic Data Updated
+                    <span className={Styles["updated"]}>15Days ago</span>
+                  </p>
+                </div>
+                <KeyPersonnel />
+              </div>
             </CustomTabPanel>
             <CustomTabPanel
               value={value}

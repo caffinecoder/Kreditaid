@@ -7,10 +7,6 @@ const Contact = () => {
       <section className={Styles["contact"]}>
         <div className={Styles["info-header"]}>
           <h2 className={Styles["info-title"]}>Contact</h2>
-          <p>
-            Basic Data Updated:
-            <span className={Styles["updated"]}> 15Days ago</span>
-          </p>
         </div>
         <div className={Styles["contact-grid"]}>
           <div className={Styles["details"]}>

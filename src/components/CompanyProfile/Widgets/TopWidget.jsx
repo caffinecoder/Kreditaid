@@ -1,5 +1,6 @@
 import React from "react";
 import Styles from "./TopWidget.module.css";
+import Button from "../../Buttons/Button";
 const TopWidget = () => {
   const items = [
     {
@@ -56,6 +57,13 @@ const TopWidget = () => {
             </li>
           ))}
         </ul>
+      </div>
+      <div className={Styles["add-cart-wrap"]}>
+        <div className={Styles["price"]}>
+          <p>Full Company Report</p>
+          <span>₹1500</span>
+        </div>
+        <Button className={Styles["add-cart-btn"]}>Add To Cart</Button>
       </div>
     </section>
   );

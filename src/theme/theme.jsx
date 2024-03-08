@@ -9,6 +9,15 @@ const theme = createTheme({
       main: "#dc004e",
     },
   },
+  components: {
+    MuiTableCell: {
+      styleOverrides: {
+        head: {
+          fontWeight: "600",
+        },
+      },
+    },
+  },
 });
 
 export default theme;

@@ -16,7 +16,7 @@ const rows = [
   createData("10175087", "Nikhil Doegar", "Director", "14 June 2023"),
 ];
 
-const DirectorDetails = () => {
+const KeyPersonnel = () => {
   return (
     <div>
       <TableContainer component={Paper}>
@@ -50,4 +50,4 @@ const DirectorDetails = () => {
   );
 };
 
-export default DirectorDetails;
+export default KeyPersonnel;

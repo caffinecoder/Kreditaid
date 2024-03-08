@@ -7,6 +7,7 @@ import Styles from "./CompanySearch.module.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 
 const CompanySearch = () => {
   const dispatch = useDispatch();
@@ -22,29 +23,25 @@ const CompanySearch = () => {
     inputRef.current.placeholder =
       "You dont need to click me its auto search type something";
     try {
-      const response = await fetch(
-        `http://206.189.135.190/api/commonSearch?source=kreditaid&searchKeyWord=${searchTerm}&searchType=${searchCategory}`,
+      const response = await axios.get(
+        `http://206.189.135.190/api/commonSearch`,
         {
-          method: "GET",
-          headers: {
-            Authorization: "KreditAid!#Tech$%Ali&*Insight^@UCSFinance$",
-            "Content-Type": "application/json",
-            Host: "kreditaid.com",
+          params: {
+            source: "kreditaid",
+            searchKeyWord: searchTerm,
+            searchType: searchCategory,
           },
         }
       );
-      const data = await response.json();
-      setCompanyName(data.data);
+      setCompanyName(response.data.data);
       setShowResults(true);
-      if (setShowResults(true)) {
-        alert("error");
-      }
     } catch (error) {
       console.error("Error fetching company data:", error);
       setCompanyName([
         { companyName: "Error fetching company data", companyID: null },
       ]);
       setShowResults(true);
+      alert("Error fetching company data");
     }
   };
   const handleKeyPress = (event) => {

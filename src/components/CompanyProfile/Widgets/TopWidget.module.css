@@ -15,3 +15,16 @@
   font-weight: 400;
   margin: 0 8px;
 }
+.add-cart-wrap {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #d8d8eb;
+}
+.price {
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: space-between;
+}
+.add-cart-btn {
+  width: 100%;
+}

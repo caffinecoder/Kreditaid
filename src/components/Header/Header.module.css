@@ -1,6 +1,10 @@
 .header {
   padding: 6px 0;
-  position: relative;
+  position: sticky;
+  top: 0;
+  position: -webkit-sticky;
+  background-color: #ffffff;
+  z-index: 1000;
 }
 .header-container {
   display: flex;
@@ -38,7 +42,7 @@
 .humberger.open .humberger-line:nth-child(3) {
   transform: translateY(-10px) rotate(-45deg);
 }
-.humberger.open .header{
+.humberger.open .header {
   border-bottom: 1px solid #e9ecf6;
 }
 .left-content {
@@ -217,7 +221,7 @@
   .login-inner::before {
     right: 42px;
   }
-  .mycart{
+  .mycart {
     font-size: 2rem;
   }
 }

@@ -2,6 +2,7 @@ import React from "react";
 import Styles from "./Login.module.css";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../features/loginAuth/authSlice";
 import authSlice, {
   setLoginFailure,
   setLoginSuccess,
@@ -12,8 +13,9 @@ import { app, auth, provider } from "../../firebase/firebase";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 const Login = () => {
   const dispatch = useDispatch();
-  const loginSuccess = useSelector((state) => state.userAuth.isLoggedIn);
-  const loginFailure = useSelector((state) => state.userAuth.error);
+  const isLoggedIn = useSelector((state) => state.userAuth.isLoggedIn);
+  const user = useSelector((state) => state.userAuth.user);
+  const error = useSelector((state) => state.userAuth.error);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const googleLogin = (e) => {
@@ -39,7 +41,7 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     if (email && password) {
-      dispatch(setLoginSuccess("You Have Successfully Login"));
+      dispatch(login({ email, password }));
     } else {
       dispatch(setLoginFailure("Please Fill The Email & Password"));
     }
@@ -86,8 +88,8 @@ const Login = () => {
                   <button className={Styles["loginBtn"]} onClick={handleLogin}>
                     Login
                   </button>
-                  {loginSuccess && <p>{loginSuccess}</p>}
-                  {loginFailure && <p>{loginFailure}</p>}
+                  {isLoggedIn && <p>{isLoggedIn}</p>}
+                  {error && <p>{error}</p>}
                 </div>
                 <div className={Styles["social-message"]}>
                   <div className={Styles.line}></div>
